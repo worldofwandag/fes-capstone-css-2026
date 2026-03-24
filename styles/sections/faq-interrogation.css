@@ -100,13 +100,12 @@
       .faq-item:nth-child(8) { --d: 0.86s; }
 
       .faq-question {
-        width: 100%;
-        background: transparent;
-        border: 0;
-        padding: 0;
-        color: inherit;
         cursor: pointer;
-        text-align: left;
+        list-style: none;
+      }
+
+      .faq-question::-webkit-details-marker {
+        display: none;
       }
 
       .faq-question__top {
@@ -171,15 +170,15 @@
         transition: transform 0.2s ease;
       }
 
-      .faq-item:not(.open):hover .faq-question__text {
+      .faq-item:not([open]):hover .faq-question__text {
         color: #ffffff;
       }
 
-      .faq-item:not(.open):hover .faq-question__q {
+      .faq-item:not([open]):hover .faq-question__q {
         opacity: 0.85;
       }
 
-      .faq-item:not(.open):hover .faq-question__text::after {
+      .faq-item:not([open]):hover .faq-question__text::after {
         transform: scaleX(1);
       }
 
@@ -216,26 +215,26 @@
         color: rgba(241, 233, 220, 0.83);
       }
 
-      .faq-item.open .faq-question__q {
+      .faq-item[open] .faq-question__q {
         background: var(--faq-accent);
         color: #18120a;
         opacity: 1;
       }
 
-      .faq-item.open .faq-question__toggle::before {
+      .faq-item[open] .faq-question__toggle::before {
         content: "[−]";
       }
 
-      .faq-item.open .faq-question__text {
+      .faq-item[open] .faq-question__text {
         color: #ffffff;
       }
 
-      .faq-item.open .faq-answer-wrap {
+      .faq-item[open] .faq-answer-wrap {
         max-height: 300px;
         opacity: 1;
       }
 
-      .faq-item.open .faq-answer {
+      .faq-item[open] .faq-answer {
         border-left-color: var(--faq-accent);
       }
 
