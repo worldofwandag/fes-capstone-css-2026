@@ -65,7 +65,8 @@
         font-weight: 300;
         font-size: clamp(0.98rem, 2vw, 1.08rem);
         line-height: 1.65;
-        color: rgba(242, 238, 231, 0.82);
+        color: var(--mc-text);
+        opacity: 0.82;
         max-width: 42ch;
       }
 
@@ -125,7 +126,8 @@
       }
 
       .mission-control__input::placeholder {
-        color: rgba(242, 238, 231, 0.52);
+        color: var(--mc-text);
+        opacity: 0.52;
         font-family: "Space Mono", monospace;
       }
 
@@ -153,7 +155,8 @@
         margin: 0.85rem 0 0;
         font-family: "Space Mono", monospace;
         font-size: 0.72rem;
-        color: rgba(242, 238, 231, 0.48);
+        color: var(--mc-text);
+        opacity: 0.48;
         letter-spacing: 0.06em;
       }
 
@@ -318,4 +321,64 @@
           opacity: 1 !important;
           transform: none !important;
         }
+      }
+
+      /* ============================================
+         LIGHT MODE OVERRIDES
+         ============================================ */
+
+      body:not(.dark-theme) .mission-control {
+        --mc-bg-deep: #f5efe6;
+        --mc-bg-glow: #e8ddca;
+        --mc-text: #1f1b16;
+        --mc-muted: rgba(31, 27, 22, 0.6);
+        --mc-accent: #0e84a6;
+      }
+
+      /* Mission Control: right panel text should stay white in light mode */
+      body:not(.dark-theme) .mission-control .mission-control__right,
+      body:not(.dark-theme)
+        .mission-control
+        .mission-control__right
+        :where(
+          h1,
+          h2,
+          h3,
+          h4,
+          h5,
+          h6,
+          p,
+          a,
+          li,
+          span,
+          strong,
+          em,
+          small,
+          label,
+          button,
+          summary
+        ) {
+        color: #ffffff !important;
+      }
+
+      body:not(.dark-theme) .mission-control .mission-control__right::before {
+        background: linear-gradient(
+          to right,
+          rgba(10, 10, 10, 0.88) 0%,
+          rgba(10, 10, 10, 0.35) 40%,
+          rgba(10, 10, 10, 0.72) 100%
+        ) !important;
+      }
+
+      /* Boost opacity for better readability in light mode */
+      body:not(.dark-theme) .mission-control .mission-control__copy {
+        opacity: 1;
+      }
+
+      body:not(.dark-theme) .mission-control .mission-control__input::placeholder {
+        opacity: 0.65;
+      }
+
+      body:not(.dark-theme) .mission-control .mission-control__note {
+        opacity: 0.65;
       }

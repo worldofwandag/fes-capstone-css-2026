@@ -26,7 +26,8 @@
       .countdown-monument__line--one {
         font-weight: 300;
         font-size: clamp(1.9rem, 3.6vw, 3.4rem);
-        color: rgba(244, 237, 226, 0.4);
+        color: var(--cd-text);
+        opacity: 0.4;
         animation-delay: 0s;
       }
 
@@ -41,7 +42,8 @@
         font-weight: 300;
         font-style: italic;
         font-size: clamp(1.4rem, 2.6vw, 2.2rem);
-        color: rgba(244, 237, 226, 0.45);
+        color: var(--cd-text);
+        opacity: 0.45;
         animation-delay: 0.24s;
       }
 
@@ -133,7 +135,8 @@
         font-size: 0.64rem;
         letter-spacing: 0.1em;
         text-transform: uppercase;
-        color: rgba(244, 237, 226, 0.3);
+        color: var(--cd-text);
+        opacity: 0.3;
       }
 
       .countdown-phase__weeks {
@@ -154,14 +157,15 @@
         font-size: 0.86rem;
         letter-spacing: 0.09em;
         text-transform: uppercase;
-        color: rgba(244, 237, 226, 0.9);
+        color: var(--cd-text);
+        opacity: 0.9;
         display: inline-flex;
         align-items: center;
         gap: 0.45rem;
       }
 
       .countdown-phase--three .countdown-phase__label {
-        color: #fff6de;
+        color: var(--cd-text);
       }
 
       .countdown-phase__live-dot {
@@ -296,4 +300,42 @@
         .countdown-phase__live-dot {
           animation: none !important;
         }
+      }
+
+      /* ============================================
+         DARK MODE OVERRIDES - Keep vibrant colors
+         ============================================ */
+
+      body.dark-theme .countdown-monument {
+        --cd-accent: #f5a623;
+      }
+
+      /* ============================================
+         LIGHT MODE OVERRIDES
+         ============================================ */
+
+      body:not(.dark-theme) .countdown-monument {
+        --cd-bg: #f4efe5;
+        --cd-text: #241f18;
+        --cd-muted: rgba(36, 31, 24, 0.52);
+        --cd-accent: #8f5309;
+        background:
+          radial-gradient(
+            ellipse at 85% 50%,
+            rgba(178, 106, 17, 0.09) 0%,
+            transparent 52%
+          ),
+          var(--cd-bg);
+      }
+
+      /* Step cards: keep item typography white in light mode */
+      body:not(.dark-theme)
+        .countdown-monument
+        .countdown-phase
+        :where(
+          .countdown-phase__meta,
+          .countdown-phase__weeks,
+          .countdown-phase__label
+        ) {
+        color: #ffffff !important;
       }

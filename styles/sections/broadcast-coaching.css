@@ -23,7 +23,8 @@
         font-size: 0.82rem;
         letter-spacing: 0.24em;
         text-transform: uppercase;
-        color: rgba(255, 255, 255, 0.42);
+        color: var(--bc-text);
+        opacity: 0.42;
         opacity: 0;
         transform: translateY(8px);
         animation: bcFadeIn 0.45s ease forwards;
@@ -197,7 +198,8 @@
         margin: 0 0 1.2rem;
         font-family: "Space Mono", monospace;
         font-size: 0.78rem;
-        color: rgba(243, 237, 226, 0.56);
+        color: var(--bc-text);
+        opacity: 0.56;
       }
 
       .broadcast-coaching__form {
@@ -211,7 +213,8 @@
         font-family: "Space Mono", monospace;
         font-size: 0.7rem;
         letter-spacing: 0.06em;
-        color: rgba(255, 255, 255, 0.48);
+        color: var(--bc-text);
+        opacity: 0.48;
       }
 
       .broadcast-coaching__input {
@@ -233,7 +236,8 @@
 
       .broadcast-coaching__input::placeholder {
         font-family: "Space Mono", monospace;
-        color: rgba(243, 237, 226, 0.42);
+        color: var(--bc-text);
+        opacity: 0.42;
       }
 
       .broadcast-coaching__button {
@@ -264,7 +268,8 @@
         font-family: "Space Mono", monospace;
         font-size: 0.68rem;
         letter-spacing: 0.03em;
-        color: rgba(243, 237, 226, 0.4);
+        color: var(--bc-text);
+        opacity: 0.4;
       }
 
       @keyframes bcFadeIn {
@@ -338,4 +343,39 @@
           opacity: 1 !important;
           transform: none !important;
         }
+      }
+
+      /* ============================================
+         LIGHT MODE OVERRIDES
+         ============================================ */
+
+      body:not(.dark-theme) .broadcast-coaching {
+        --bc-bg-1: #efe3cf;
+        --bc-bg-2: #f7f1e8;
+        --bc-panel: #fff8ed;
+        --bc-text: #231f19;
+        --bc-muted: rgba(35, 31, 25, 0.62);
+        --bc-line: rgba(35, 31, 25, 0.1);
+        --bc-accent: #b26a11;
+      }
+
+      /* Boost opacity for better readability in light mode */
+      body:not(.dark-theme) .broadcast-coaching .broadcast-coaching__kicker {
+        opacity: 0.65;
+      }
+
+      body:not(.dark-theme) .broadcast-coaching .broadcast-coaching__panel-subtitle {
+        opacity: 0.75;
+      }
+
+      body:not(.dark-theme) .broadcast-coaching .broadcast-coaching__label {
+        opacity: 0.7;
+      }
+
+      body:not(.dark-theme) .broadcast-coaching .broadcast-coaching__input::placeholder {
+        opacity: 0.65;
+      }
+
+      body:not(.dark-theme) .broadcast-coaching .broadcast-coaching__note {
+        opacity: 0.6;
       }

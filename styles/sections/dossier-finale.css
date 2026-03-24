@@ -77,7 +77,7 @@
         font-weight: 300;
         font-size: clamp(1.2rem, 2.5vw, 1.55rem);
         line-height: 1.62;
-        color: #f4eee4;
+        color: var(--df-text);
         opacity: 0;
         animation: dossierFadeOnly 0.6s ease 0.35s forwards;
       }
@@ -160,7 +160,8 @@
         font-style: italic;
         font-size: 1rem;
         line-height: 1.65;
-        color: rgba(242, 236, 223, 0.92);
+        color: var(--df-text);
+        opacity: 0.92;
         max-width: 480px;
       }
 
@@ -179,7 +180,8 @@
         font-weight: 300;
         font-size: 0.94rem;
         line-height: 1.5;
-        color: rgba(242, 236, 223, 0.94);
+        color: var(--df-text);
+        opacity: 0.94;
         opacity: 0;
         animation: dossierFadeOnly 0.45s ease forwards;
       }
@@ -250,7 +252,8 @@
         letter-spacing: 0.14em;
         text-transform: uppercase;
         font-size: 0.72rem;
-        color: rgba(242, 236, 223, 0.3);
+        color: var(--df-text);
+        opacity: 0.3;
         opacity: 0;
         animation: dossierFadeOnly 0.4s ease forwards;
       }
@@ -272,7 +275,8 @@
         font-family: "Lora", serif;
         font-style: italic;
         font-size: 0.95rem;
-        color: rgba(242, 236, 223, 0.5);
+        color: var(--df-text);
+        opacity: 0.5;
         opacity: 0;
         animation: dossierFadeOnly 0.45s ease 0.35s forwards;
       }
@@ -307,7 +311,8 @@
 
       .launch-sequence__input::placeholder {
         font-family: "Space Mono", monospace;
-        color: rgba(242, 236, 223, 0.45);
+        color: var(--df-text);
+        opacity: 0.45;
       }
 
       .launch-sequence__button {
@@ -448,4 +453,58 @@
           opacity: 1 !important;
           transform: none !important;
         }
+      }
+
+      /* ============================================
+         LIGHT MODE OVERRIDES
+         ============================================ */
+
+      /* ============================================
+         DARK MODE OVERRIDES - Keep vibrant colors
+         ============================================ */
+
+      body.dark-theme .dossier-finale {
+        --df-accent: #f5a623;
+      }
+
+      body.dark-theme .dossier-finale .dossier-story__label {
+        color: rgba(245, 166, 35, 0.7);
+      }
+
+      /* ============================================
+         LIGHT MODE OVERRIDES
+         ============================================ */
+
+      body:not(.dark-theme) .dossier-finale {
+        --df-bg: #f5efe5;
+        --df-bg-deep: #ece3d4;
+        --df-text: #241f18;
+        --df-accent: #ad660f;
+      }
+
+      body:not(.dark-theme) .dossier-finale .dossier-story__label {
+        color: rgba(143, 83, 9, 0.9);
+      }
+
+      body:not(.dark-theme) .dossier-finale .dossier-proof__list li {
+        border-top-color: rgba(255, 255, 255, 0.16) !important;
+      }
+
+      body:not(.dark-theme) .dossier-finale .dossier-proof__list li::before,
+      body:not(.dark-theme) .dossier-finale .dossier-proof__list li::after {
+        color: #ffffff !important;
+        background: #ffffff !important;
+      }
+
+      /* Boost opacity for better readability in light mode */
+      body:not(.dark-theme) .dossier-finale .launch-sequence__label {
+        opacity: 0.55;
+      }
+
+      body:not(.dark-theme) .dossier-finale .launch-sequence__subtitle {
+        opacity: 0.7;
+      }
+
+      body:not(.dark-theme) .dossier-finale .launch-sequence__input::placeholder {
+        opacity: 0.65;
       }

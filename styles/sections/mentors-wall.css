@@ -32,7 +32,7 @@
         font-weight: 900;
         font-size: clamp(3.5rem, 6vw, 6rem);
         line-height: 0.9;
-        color: #f9f3e9;
+        color: var(--mw-text);
         opacity: 0;
         transform: translateY(25px);
         animation: mwTitleIn 0.62s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
@@ -44,7 +44,8 @@
         font-style: italic;
         font-size: 0.96rem;
         line-height: 1.7;
-        color: rgba(242, 236, 224, 0.5);
+        color: var(--mw-text);
+        opacity: 0.5;
         opacity: 0;
         animation: mwFadeIn 0.45s ease 0.3s forwards;
       }
@@ -163,7 +164,8 @@
       }
 
       .mentor-wall-card__role--muted {
-        color: rgba(242, 236, 224, 0.4);
+        color: var(--mw-text);
+        opacity: 0.4;
       }
 
       .mentor-wall-card__name {
@@ -171,7 +173,7 @@
         font-family: "Fraunces", serif;
         font-weight: 700;
         font-size: 1.3rem;
-        color: #f3ece1;
+        color: var(--mw-text);
         transition: color 0.3s ease;
       }
 
@@ -180,7 +182,7 @@
       }
 
       .mentor-wall-card:hover .mentor-wall-card__name {
-        color: #ffffff;
+        color: var(--mw-text);
       }
 
       .mentor-wall-card__link {
@@ -206,7 +208,8 @@
         text-align: center;
         font-family: "Space Mono", monospace;
         font-size: 0.64rem;
-        color: rgba(242, 236, 224, 0.2);
+        color: var(--mw-text);
+        opacity: 0.2;
         letter-spacing: 0.06em;
         opacity: 0;
         animation: mwFadeIn 0.45s ease 1s forwards;
@@ -284,4 +287,68 @@
           opacity: 1 !important;
           transform: none !important;
         }
+      }
+
+      /* ============================================
+         LIGHT MODE OVERRIDES
+         ============================================ */
+
+      /* ============================================
+         DARK MODE OVERRIDES - Keep vibrant colors
+         ============================================ */
+
+      body.dark-theme .mentors-wall {
+        --mw-accent: #f5a623;
+      }
+
+      body.dark-theme .mentors-wall .mentors-wall__kicker {
+        color: rgba(245, 166, 35, 0.75);
+      }
+
+      body.dark-theme .mentors-wall .mentor-wall-card__role--accent {
+        color: rgba(245, 166, 35, 0.9);
+      }
+
+      /* ============================================
+         LIGHT MODE OVERRIDES
+         ============================================ */
+
+      body:not(.dark-theme) .mentors-wall {
+        --mw-bg: #f4efe6;
+        --mw-text: #231f18;
+        --mw-accent: #ad660f;
+        --mw-gap: rgba(173, 102, 15, 0.1);
+      }
+
+      body:not(.dark-theme) .mentors-wall .mentors-wall__kicker {
+        color: rgba(143, 83, 9, 0.95);
+      }
+
+      body:not(.dark-theme) .mentors-wall .mentor-wall-card__role--accent {
+        color: rgba(143, 83, 9, 1);
+      }
+
+      /* Mentors: keep text inside each card white in light mode */
+      body:not(.dark-theme)
+        .mentors-wall
+        .mentor-wall-card
+        :where(
+          .mentor-wall-card__role,
+          .mentor-wall-card__name,
+          .mentor-wall-card__link
+        ) {
+        color: #ffffff !important;
+      }
+
+      /* Boost opacity for better readability in light mode */
+      body:not(.dark-theme) .mentors-wall .mentors-wall__subtitle {
+        opacity: 0.7;
+      }
+
+      body:not(.dark-theme) .mentors-wall .mentor-wall-card__role--muted {
+        opacity: 0.65;
+      }
+
+      body:not(.dark-theme) .mentors-wall .mentors-wall__footer {
+        opacity: 0.45;
       }

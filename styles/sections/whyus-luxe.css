@@ -257,3 +257,21 @@
           clip-path: none !important;
         }
       }
+
+      /* ============================================
+         LIGHT MODE OVERRIDES
+         ============================================ */
+
+      body:not(.dark-theme) .whyus-luxe {
+        --whyus-bg: #f4efe6;
+        --whyus-surface: #fff8ee;
+        --whyus-border: rgba(31, 27, 22, 0.18);
+        --whyus-text: #1f1b16;
+        --whyus-muted: #5c5348;
+        --whyus-accent: #a3600b;
+      }
+
+      /* Boost opacity for better readability in light mode */
+      body:not(.dark-theme) .whyus-card__num {
+        opacity: 0.55;
+      }

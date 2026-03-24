@@ -186,7 +186,7 @@
         position: relative;
         padding: 0.6rem 0.7rem;
         border: 1px solid rgba(255, 255, 255, 0.22);
-        color: #e8e3d7;
+        color: var(--proof-text);
         font-family: "Space Mono", monospace;
         font-size: 0.78rem;
         letter-spacing: 0.08em;
@@ -283,7 +283,8 @@
         font-size: 0.72rem;
         letter-spacing: 0.08em;
         text-transform: uppercase;
-        color: #dad2c6;
+        color: var(--proof-text);
+        opacity: 0.85;
       }
 
       .outcome-person {
@@ -304,14 +305,15 @@
         margin: 0;
         font-family: "Space Mono", monospace;
         font-size: 0.86rem;
-        color: #f2ede2;
+        color: var(--proof-text);
       }
 
       .outcome-role {
         margin: 0;
         font-family: "Space Mono", monospace;
         font-size: 0.72rem;
-        color: #aca394;
+        color: var(--proof-text);
+        opacity: 0.65;
       }
 
       .outcome-salary {
@@ -320,7 +322,7 @@
         font-size: clamp(1.75rem, 3.7vw, 2.45rem);
         line-height: 1;
         letter-spacing: -0.02em;
-        color: #faf5ea;
+        color: var(--proof-text);
       }
 
       .salary-arrow {
@@ -352,7 +354,8 @@
         font-family: "Fraunces", serif;
         font-style: italic;
         font-size: 0.95rem;
-        color: #d1c8bc;
+        color: var(--proof-text);
+        opacity: 0.8;
         line-height: 1.55;
       }
 
@@ -438,4 +441,60 @@
           opacity: 1 !important;
           transform: none !important;
         }
+      }
+
+      /* ============================================
+         LIGHT MODE OVERRIDES
+         ============================================ */
+
+      body:not(.dark-theme) .proof-luxe {
+        --proof-bg: #f7f3ec;
+        --proof-surface: #fffaf1;
+        --proof-surface-alt: #f7f0e5;
+        --proof-text: #221e18;
+        --proof-muted: #655b4f;
+        --proof-accent: #b26a11;
+        background: linear-gradient(180deg, #f5f0e6 0%, #eee6d8 100%);
+        border-top-color: rgba(31, 27, 22, 0.12);
+        border-bottom-color: rgba(31, 27, 22, 0.12);
+      }
+
+      body:not(.dark-theme) .proof-banner,
+      body:not(.dark-theme) .proof-companies {
+        border-bottom-color: rgba(31, 27, 22, 0.1);
+      }
+
+      body:not(.dark-theme) .proof-quote {
+        border-left-color: rgba(31, 27, 22, 0.2);
+      }
+
+      body:not(.dark-theme) .proof-quote a {
+        color: #8f5309;
+      }
+
+      body:not(.dark-theme) .proof-companies__list li {
+        border-color: rgba(31, 27, 22, 0.24);
+        color: #2a251e;
+      }
+
+      body:not(.dark-theme) .outcome-card {
+        border-color: rgba(31, 27, 22, 0.18);
+        box-shadow: 0 14px 36px rgba(31, 27, 22, 0.1);
+      }
+
+      body:not(.dark-theme) .outcome-company {
+        color: #5b5044;
+      }
+
+      /* Boost opacity for better readability in light mode */
+      body:not(.dark-theme) .outcome-company {
+        opacity: 1;
+      }
+
+      body:not(.dark-theme) .outcome-role {
+        opacity: 0.8;
+      }
+
+      body:not(.dark-theme) .outcome-quote {
+        opacity: 1;
       }

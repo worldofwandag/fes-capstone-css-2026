@@ -68,7 +68,8 @@
         font-weight: 900;
         font-size: clamp(5rem, 15vw, 12rem);
         line-height: 1;
-        color: rgba(245, 236, 223, 0.025);
+        color: var(--cm-text);
+        opacity: 0.025;
         pointer-events: none;
         user-select: none;
         z-index: 0;
@@ -95,7 +96,7 @@
         font-family: "Fraunces", serif;
         font-weight: 900;
         font-size: clamp(2.3rem, 5vw, 5rem);
-        color: #f6f0e5;
+        color: var(--cm-text);
         opacity: 0;
         transform: translateY(20px);
         animation: cmTitleIn 0.58s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -165,7 +166,8 @@
         font-size: 0.72rem;
         letter-spacing: 0.1em;
         text-transform: uppercase;
-        color: rgba(242, 236, 223, 0.3);
+        color: var(--cm-text);
+        opacity: 0.3;
       }
 
       .curriculum-mission__right {
@@ -253,12 +255,13 @@
         font-family: "Fraunces", serif;
         font-weight: 700;
         font-size: 1.1rem;
-        color: rgba(242, 236, 223, 0.92);
+        color: var(--cm-text);
+        opacity: 0.92;
         transition: color 0.25s ease;
       }
 
       .curriculum-log__item:hover .curriculum-log__title {
-        color: #ffffff;
+        color: var(--cm-text);
       }
 
       .curriculum-log__desc {
@@ -268,23 +271,27 @@
         font-style: italic;
         font-size: 0.94rem;
         line-height: 1.66;
-        color: rgba(242, 236, 223, 0.6);
+        color: var(--cm-text);
+        opacity: 0.6;
         transition: opacity 0.25s ease, color 0.25s ease;
       }
 
       .curriculum-log__item:hover .curriculum-log__desc {
-        color: rgba(242, 236, 223, 0.85);
+        color: var(--cm-text);
+        opacity: 0.85;
       }
 
       .curriculum-log__arrow {
         font-family: "Space Mono", monospace;
         font-size: 1rem;
-        color: rgba(242, 236, 223, 0.2);
+        color: var(--cm-text);
+        opacity: 0.2;
         transition: opacity 0.25s ease;
       }
 
       .curriculum-log__item:hover .curriculum-log__arrow {
-        color: rgba(242, 236, 223, 0.7);
+        color: var(--cm-text);
+        opacity: 0.7;
       }
 
       .curriculum-log__badge {
@@ -396,4 +403,95 @@
         .curriculum-mission__progress-fill {
           animation: none !important;
         }
+      }
+
+      /* ============================================
+         LIGHT MODE OVERRIDES
+         ============================================ */
+
+      /* Curriculum: right panel text should stay white in light mode */
+      body:not(.dark-theme) .curriculum-mission .curriculum-mission__right,
+      body:not(.dark-theme)
+        .curriculum-mission
+        .curriculum-mission__right
+        :where(
+          h1,
+          h2,
+          h3,
+          h4,
+          h5,
+          h6,
+          p,
+          a,
+          li,
+          span,
+          strong,
+          em,
+          small,
+          label,
+          button,
+          summary
+        ) {
+        color: #ffffff !important;
+      }
+
+      body:not(.dark-theme) .curriculum-mission .curriculum-log__divider {
+        background: rgba(255, 255, 255, 0.24) !important;
+      }
+
+      body:not(.dark-theme) .curriculum-mission .curriculum-log__item {
+        border-bottom-color: rgba(255, 255, 255, 0.14) !important;
+      }
+
+      /* ============================================
+         DARK MODE OVERRIDES - Keep vibrant colors
+         ============================================ */
+
+      body.dark-theme .curriculum-mission {
+        --cm-accent: #f5a623;
+      }
+
+      body.dark-theme .curriculum-mission .curriculum-mission__title-line {
+        color: rgba(245, 166, 35, 0.7);
+      }
+
+      body.dark-theme .curriculum-mission .curriculum-log__item-meta {
+        color: rgba(245, 166, 35, 0.5);
+      }
+
+      /* ============================================
+         LIGHT MODE OVERRIDES
+         ============================================ */
+
+      body:not(.dark-theme) .curriculum-mission {
+        --cm-bg: #f5efe6;
+        --cm-left-bg: linear-gradient(135deg, #fff8ed 0%, #f1e8da 100%);
+        --cm-text: #241f18;
+        --cm-muted: rgba(36, 31, 24, 0.62);
+        --cm-line: rgba(36, 31, 24, 0.1);
+        --cm-accent: #8f5309;
+      }
+
+      body:not(.dark-theme) .curriculum-mission .curriculum-mission__title-line {
+        color: rgba(143, 83, 9, 0.9);
+      }
+
+      body:not(.dark-theme) .curriculum-mission .curriculum-log__item-meta {
+        color: rgba(143, 83, 9, 0.75);
+      }
+
+      body:not(.dark-theme) .curriculum-mission .curriculum-mission__watermark {
+        color: rgba(0, 0, 0, 0.08) !important;
+        font-size: clamp(4rem, 12vw, 8.5rem) !important;
+        left: 56%;
+        bottom: 2.4rem;
+      }
+
+      /* Boost opacity for better readability in light mode */
+      body:not(.dark-theme) .curriculum-mission .curriculum-log__arrow {
+        opacity: 0.45;
+      }
+
+      body:not(.dark-theme) .curriculum-mission .curriculum-mission__item-meta {
+        opacity: 0.55;
       }

@@ -187,7 +187,7 @@
         font-style: italic;
         font-size: 0.95rem;
         line-height: 1.62;
-        color: #d4cdbf;
+        color: var(--news-text);
       }
 
       @keyframes newsFadeInUp {
@@ -236,4 +236,24 @@
           transform: none !important;
           opacity: 1 !important;
         }
+      }
+
+      /* ============================================
+         LIGHT MODE OVERRIDES
+         ============================================ */
+
+      body:not(.dark-theme) .newswall {
+        --news-bg: #f6f1e8;
+        --news-surface: #fff8ee;
+        --news-text: #221e18;
+        --news-muted: #5f564a;
+      }
+
+      /* Boost opacity for better readability in light mode */
+      body:not(.dark-theme) .newswall .news-card__case {
+        opacity: 0.55;
+      }
+
+      body:not(.dark-theme) .newswall .news-card:hover .news-card__case {
+        opacity: 0.85;
       }

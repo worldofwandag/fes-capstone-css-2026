@@ -5,14 +5,6 @@
    ============================================ */
 
 :root {
-  --color-primary: #6366f1;
-  --color-primary-dark: #4f46e5;
-  --color-accent: #22c55e;
-  --color-text: #1f2937;
-  --color-text-muted: #6b7280;
-  --color-bg: #ffffff;
-  --color-bg-alt: #f9fafb;
-  --color-bg-dark: #111827;
   --spacing-unit: 0.25rem;
   --spacing-1: calc(var(--spacing-unit) * 1);
   --spacing-2: calc(var(--spacing-unit) * 2);
@@ -54,12 +46,12 @@
 
 body.dark-theme {
   --theme-mode: dark;
-  --theme-page-bg: #080808;
+  --theme-page-bg: #08080red8;
   --theme-page-text: #f2ece0;
   --theme-surface: #131313;
   --theme-border: rgba(255, 255, 255, 0.12);
   --theme-muted: rgba(242, 236, 224, 0.64);
-  --theme-accent: #f5a623;
+  --theme-accent: #f5b623;
   --theme-accent-contrast: #080808;
   --theme-nav-bg: rgba(8, 8, 8, 0.85);
   --theme-nav-border: rgba(255, 255, 255, 0.06);

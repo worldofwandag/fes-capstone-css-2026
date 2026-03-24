@@ -1,20 +1,52 @@
-body:not(.dark-theme) :where(h1, h2, h3, h4, h5, h6, p, a, li, span, strong, em, small, label, button, summary) {
-  color: #000000 !important;
-}
+/* DEFAULT LIGHT MODE: Let CSS variables control colors naturally */
+/* No global overrides needed - sections define their own defaults */
 
-body:not(.dark-theme) :where(a, button, summary)::before,
-body:not(.dark-theme) :where(a, button, summary)::after {
-  color: #000000 !important;
-}
-
-/* Keep white typography on the two dark treatment sections */
+/* Keep white typography on dark treatment sections in light mode */
 body:not(.dark-theme) .stats-block,
 body:not(.dark-theme) .value-prop-section {
   color: #ffffff !important;
 }
 
-body:not(.dark-theme) .stats-block :where(h1, h2, h3, h4, h5, h6, p, a, li, span, strong, em, small, label, button, summary),
-body:not(.dark-theme) .value-prop-section :where(h1, h2, h3, h4, h5, h6, p, a, li, span, strong, em, small, label, button, summary) {
+body:not(.dark-theme)
+  .stats-block
+  :where(
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    a,
+    li,
+    span,
+    strong,
+    em,
+    small,
+    label,
+    button,
+    summary
+  ),
+body:not(.dark-theme)
+  .value-prop-section
+  :where(
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    a,
+    li,
+    span,
+    strong,
+    em,
+    small,
+    label,
+    button,
+    summary
+  ) {
   color: #ffffff !important;
 }
 
@@ -25,306 +57,26 @@ body:not(.dark-theme) .value-prop-section .value-prop__eyebrow {
 
 /* Keep white typography only in the right column of alumni dossier section */
 body:not(.dark-theme) .dossier-finale .dossier-proof,
-body:not(.dark-theme) .dossier-finale .dossier-proof :where(h1, h2, h3, h4, h5, h6, p, a, li, span, strong, em, small, label, button, summary) {
+body:not(.dark-theme)
+  .dossier-finale
+  .dossier-proof
+  :where(
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    a,
+    li,
+    span,
+    strong,
+    em,
+    small,
+    label,
+    button,
+    summary
+  ) {
   color: #ffffff !important;
-}
-
-body:not(.dark-theme) .dossier-finale .dossier-proof__list li {
-  border-top-color: rgba(255, 255, 255, 0.16) !important;
-}
-
-body:not(.dark-theme) .dossier-finale .dossier-proof__list li::before,
-body:not(.dark-theme) .dossier-finale .dossier-proof__list li::after {
-  color: #ffffff !important;
-  background: #ffffff !important;
-}
-
-body:not(.dark-theme) .firstlight {
-  --fl-bg: #f6f2ea;
-  --fl-text: #000000;
-  --fl-accent: #b26a11;
-}
-
-body:not(.dark-theme) .firstlight-nav {
-  background: var(--theme-nav-bg);
-  border-bottom-color: var(--theme-nav-border);
-}
-
-body:not(.dark-theme) .firstlight-nav__mark::after {
-  border-color: rgba(246, 242, 234, 0.92);
-  background: rgba(246, 242, 234, 0.45);
-}
-
-body:not(.dark-theme) .firstlight-nav__link {
-  color: rgba(31, 27, 22, 0.62);
-}
-
-body:not(.dark-theme) .firstlight-nav__link:hover {
-  color: rgba(31, 27, 22, 1);
-}
-
-body:not(.dark-theme) .firstlight-nav__cta {
-  color: #fff8ef;
-}
-
-body:not(.dark-theme) .firstlight-hero::before {
-  background: radial-gradient(ellipse at 30% 50%, rgba(178, 106, 17, 0.08) 0%, transparent 62%);
-}
-
-body:not(.dark-theme) .firstlight-hero__media::before {
-  background: linear-gradient(to right, #f6f2ea 0%, #f6f2ea 20%, var(--theme-hero-overlay) 50%, transparent 100%);
-}
-
-body:not(.dark-theme) .firstlight-hero__media::after {
-  background: linear-gradient(to top, #f6f2ea 0%, transparent 40%);
-}
-
-body:not(.dark-theme) .firstlight-hero__image {
-  filter: grayscale(18%) brightness(0.82) contrast(1.02);
-}
-
-body:not(.dark-theme) .firstlight-hero__headline-line--strong1,
-body:not(.dark-theme) .firstlight-hero__headline-line--strong3 {
-  color: #1f1b16;
-}
-
-body:not(.dark-theme) .firstlight-hero__social {
-  border-top-color: rgba(31, 27, 22, 0.16);
-}
-
-body:not(.dark-theme) .proof-luxe {
-  --proof-bg: #f7f3ec;
-  --proof-surface: #fffaf1;
-  --proof-surface-alt: #f7f0e5;
-  --proof-text: #221e18;
-  --proof-muted: #655b4f;
-  --proof-accent: #b26a11;
-  background: linear-gradient(180deg, #f5f0e6 0%, #eee6d8 100%);
-  border-top-color: rgba(31, 27, 22, 0.12);
-  border-bottom-color: rgba(31, 27, 22, 0.12);
-}
-
-body:not(.dark-theme) .proof-banner,
-body:not(.dark-theme) .proof-companies {
-  border-bottom-color: rgba(31, 27, 22, 0.1);
-}
-
-body:not(.dark-theme) .proof-quote {
-  border-left-color: rgba(31, 27, 22, 0.2);
-}
-
-body:not(.dark-theme) .proof-quote a {
-  color: #8f5309;
-}
-
-body:not(.dark-theme) .proof-companies__list li {
-  border-color: rgba(31, 27, 22, 0.24);
-  color: #2a251e;
-}
-
-body:not(.dark-theme) .outcome-card {
-  border-color: rgba(31, 27, 22, 0.18);
-  box-shadow: 0 14px 36px rgba(31, 27, 22, 0.1);
-}
-
-body:not(.dark-theme) .outcome-company {
-  color: #5b5044;
-}
-
-body:not(.dark-theme) .whyus-luxe {
-  --whyus-bg: #f4efe6;
-  --whyus-surface: #fff8ee;
-  --whyus-border: rgba(31, 27, 22, 0.18);
-  --whyus-text: #1f1b16;
-  --whyus-muted: #5c5348;
-  --whyus-accent: #a3600b;
-}
-
-body:not(.dark-theme) .dossier-finale {
-  --df-bg: #f5efe5;
-  --df-bg-deep: #ece3d4;
-  --df-text: #241f18;
-  --df-accent: #ad660f;
-}
-
-body:not(.dark-theme) .countdown-monument {
-  --cd-bg: #f4efe5;
-  --cd-text: #241f18;
-  --cd-muted: rgba(36, 31, 24, 0.52);
-  --cd-accent: #ab650f;
-  background: radial-gradient(ellipse at 85% 50%, rgba(178, 106, 17, 0.09) 0%, transparent 52%), var(--cd-bg);
-}
-
-/* Step cards: keep item typography white in light mode */
-body:not(.dark-theme) .countdown-monument .countdown-phase :where(.countdown-phase__meta, .countdown-phase__weeks, .countdown-phase__label) {
-  color: #ffffff !important;
-}
-
-/* Curriculum: right panel text should stay white in light mode */
-body:not(.dark-theme) .curriculum-mission .curriculum-mission__right,
-body:not(.dark-theme) .curriculum-mission .curriculum-mission__right :where(h1, h2, h3, h4, h5, h6, p, a, li, span, strong, em, small, label, button, summary) {
-  color: #ffffff !important;
-}
-
-body:not(.dark-theme) .curriculum-mission .curriculum-log__divider {
-  background: rgba(255, 255, 255, 0.24) !important;
-}
-
-body:not(.dark-theme) .curriculum-mission .curriculum-log__item {
-  border-bottom-color: rgba(255, 255, 255, 0.14) !important;
-}
-
-body:not(.dark-theme) .curriculum-mission {
-  --cm-bg: #f5efe6;
-  --cm-left-bg: linear-gradient(135deg, #fff8ed 0%, #f1e8da 100%);
-  --cm-text: #241f18;
-  --cm-muted: rgba(36, 31, 24, 0.62);
-  --cm-line: rgba(36, 31, 24, 0.1);
-  --cm-accent: #ab650f;
-}
-
-body:not(.dark-theme) .curriculum-mission .curriculum-mission__watermark {
-  color: rgba(0, 0, 0, 0.08) !important;
-  font-size: clamp(4rem, 12vw, 8.5rem) !important;
-  left: 56%;
-  bottom: 2.4rem;
-}
-
-body:not(.dark-theme) .newswall {
-  --news-bg: #f6f1e8;
-  --news-surface: #fff8ee;
-  --news-text: #221e18;
-  --news-muted: #5f564a;
-}
-
-body:not(.dark-theme) .mission-control {
-  --mc-bg-deep: #f5efe6;
-  --mc-bg-glow: #e8ddca;
-  --mc-text: #1f1b16;
-  --mc-muted: rgba(31, 27, 22, 0.6);
-  --mc-accent: #0e84a6;
-}
-
-/* Mission Control: right panel text should stay white in light mode */
-body:not(.dark-theme) .mission-control .mission-control__right,
-body:not(.dark-theme) .mission-control .mission-control__right :where(h1, h2, h3, h4, h5, h6, p, a, li, span, strong, em, small, label, button, summary) {
-  color: #ffffff !important;
-}
-
-body:not(.dark-theme) .mission-control .mission-control__right::before {
-  background: linear-gradient(to right, rgba(10, 10, 10, 0.88) 0%, rgba(10, 10, 10, 0.35) 40%, rgba(10, 10, 10, 0.72) 100%) !important;
-}
-
-body:not(.dark-theme) .mentors-wall {
-  --mw-bg: #f4efe6;
-  --mw-text: #231f18;
-  --mw-accent: #ad660f;
-  --mw-gap: rgba(173, 102, 15, 0.1);
-}
-
-/* Mentors: keep text inside each card white in light mode */
-body:not(.dark-theme) .mentors-wall .mentor-wall-card :where(.mentor-wall-card__role, .mentor-wall-card__name, .mentor-wall-card__link) {
-  color: #ffffff !important;
-}
-
-body:not(.dark-theme) .broadcast-coaching {
-  --bc-bg-1: #efe3cf;
-  --bc-bg-2: #f7f1e8;
-  --bc-panel: #fff8ed;
-  --bc-text: #231f19;
-  --bc-muted: rgba(35, 31, 25, 0.62);
-  --bc-line: rgba(35, 31, 25, 0.1);
-  --bc-accent: #b26a11;
-}
-
-body:not(.dark-theme) .contract-closer {
-  --contract-bg: #ffffff;
-  --contract-glow: #ffffff;
-  --contract-text: #221e18;
-  --contract-accent: #ad660f;
-  background: #ffffff;
-}
-
-body:not(.dark-theme) .contract-closer__watermark {
-  color: rgba(255, 255, 255, 0.92) !important;
-  right: -2.5rem;
-  top: -1.2rem;
-  z-index: 0;
-}
-
-body:not(.dark-theme) .faq-interrogation {
-  --faq-bg: #f4eee4;
-  --faq-bg-glow: #ece2d1;
-  --faq-text: #231f18;
-  --faq-muted: rgba(35, 31, 24, 0.45);
-  --faq-soft: rgba(35, 31, 24, 0.1);
-  --faq-accent: #b46c12;
-  --faq-answer-accent: #327f4f;
-}
-
-/* FAQ: keep text white in light mode for readability on dark visual treatment */
-body:not(.dark-theme) .faq-interrogation :where(.faq-iq__kicker, .faq-iq__title, .faq-iq__subtitle, .faq-question__text, .faq-answer__text, .faq-question__toggle, .faq-question__q, .faq-answer__label) {
-  color: #ffffff !important;
-}
-
-body:not(.dark-theme) .faq-interrogation .faq-question__rule {
-  background: rgba(255, 255, 255, 0.3) !important;
-}
-
-body:not(.dark-theme) .faq-interrogation .faq-item {
-  border-bottom-color: rgba(255, 255, 255, 0.16) !important;
-}
-
-body:not(.dark-theme) .transmission-footer {
-  --tf-bg: #ece4d8;
-  --tf-top: #f4ecdf;
-  --tf-text: #231f19;
-  --tf-accent: #ad660f;
-  background: radial-gradient(ellipse at 10% 30%, rgba(173, 102, 15, 0.1) 0%, transparent 50%), linear-gradient(to bottom, var(--tf-top) 0%, var(--tf-bg) 100%);
-}
-
-body:not(.dark-theme) .transmission-footer__watermark {
-  color: rgba(35, 31, 25, 0.07) !important;
-  font-size: clamp(4rem, 10vw, 7rem) !important;
-  bottom: 0.65rem !important;
-}
-
-body:not(.dark-theme) .transmission-footer__logo::after {
-  border-color: rgba(244, 236, 223, 0.92);
-  background: rgba(244, 236, 223, 0.45);
-}
-
-body:not(.dark-theme) .transmission-footer__cta {
-  color: #fff8ef;
-}
-
-body:not(.dark-theme) .transmission-footer__separator,
-body:not(.dark-theme) .transmission-footer__bottom {
-  border-top-color: rgba(35, 31, 24, 0.1);
-}
-
-body:not(.dark-theme) .transmission-footer__col {
-  border-left-color: rgba(35, 31, 24, 0.08);
-}
-
-body:not(.dark-theme) .transmission-footer__head-rule {
-  background: rgba(173, 102, 15, 0.25);
-}
-
-body:not(.dark-theme) .transmission-footer__link {
-  color: rgba(35, 31, 24, 0.72);
-}
-
-body:not(.dark-theme) .transmission-footer__dots {
-  color: rgba(35, 31, 24, 0.2);
-}
-
-body:not(.dark-theme) .transmission-footer__tag {
-  border-color: rgba(35, 31, 24, 0.18);
-  color: rgba(35, 31, 24, 0.48);
-}
-
-body:not(.dark-theme) .transmission-footer__tag:hover {
-  color: rgba(35, 31, 24, 0.72);
-  border-color: rgba(173, 102, 15, 0.35);
 }
