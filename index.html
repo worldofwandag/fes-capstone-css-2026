@@ -23,7 +23,7 @@
   <link rel="stylesheet" href="styles/sections/transmission-footer.css">
   <link rel="stylesheet" href="styles/sections/theme-overrides.css">
 </head>
-<body class="dark-theme">
+<body>
   <a href="#main" class="skip-link">Skip to main content</a>
 
   <header class="firstlight firstlight-nav">
@@ -996,6 +996,11 @@
     </div>
   </footer>
   <script>
+    // Apply dark theme based on system preference
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      document.body.classList.add("dark-theme");
+    }
+
     function toggleTheme() {
       document.body.classList.toggle('dark-theme');
     }
