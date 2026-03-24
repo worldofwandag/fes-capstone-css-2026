@@ -31,28 +31,6 @@
   --transition-fast: 150ms ease;
   --transition-normal: 250ms ease;
   --container-max: 1200px;
-  --theme-mode: dark;
-  --theme-page-bg: #080808;
-  --theme-page-text: #f2ece0;
-  --theme-surface: #131313;
-  --theme-border: rgba(255, 255, 255, 0.12);
-  --theme-muted: rgba(242, 236, 224, 0.64);
-  --theme-accent: #f5a623;
-  --theme-accent-contrast: #080808;
-  --theme-nav-bg: rgba(8, 8, 8, 0.85);
-  --theme-nav-border: rgba(255, 255, 255, 0.06);
-  --theme-hero-overlay: rgba(8, 8, 8, 0.8);
-  --theme-card-bg: #161616;
-  --theme-card-border: rgba(255, 255, 255, 0.14);
-  --theme-link-soft: rgba(242, 236, 224, 0.62);
-  --theme-scrollbar-track-start: #0b0b0d;
-  --theme-scrollbar-track-end: #151515;
-  --theme-scrollbar-thumb-start: rgba(245, 166, 35, 0.95);
-  --theme-scrollbar-thumb-end: rgba(230, 142, 12, 0.95);
-  --theme-scrollbar-border: #0b0b0d;
-}
-
-html[data-theme="light"] {
   --theme-mode: light;
   --theme-page-bg: #f6f2ea;
   --theme-page-text: #000000;
@@ -74,28 +52,26 @@ html[data-theme="light"] {
   --theme-scrollbar-border: #ece6dc;
 }
 
-@media (prefers-color-scheme: light) {
-  html:not([data-theme]) {
-    --theme-mode: light;
-    --theme-page-bg: #f6f2ea;
-    --theme-page-text: #000000;
-    --theme-surface: #fffdf9;
-    --theme-border: rgba(31, 27, 22, 0.16);
-    --theme-muted: #000000;
-    --theme-accent: #b26a11;
-    --theme-accent-contrast: #000000;
-    --theme-nav-bg: rgba(246, 242, 234, 0.88);
-    --theme-nav-border: rgba(31, 27, 22, 0.12);
-    --theme-hero-overlay: rgba(246, 242, 234, 0.82);
-    --theme-card-bg: #fffaf2;
-    --theme-card-border: rgba(31, 27, 22, 0.18);
-    --theme-link-soft: #000000;
-    --theme-scrollbar-track-start: #ece6dc;
-    --theme-scrollbar-track-end: #f7f3eb;
-    --theme-scrollbar-thumb-start: rgba(178, 106, 17, 0.9);
-    --theme-scrollbar-thumb-end: rgba(150, 85, 8, 0.92);
-    --theme-scrollbar-border: #ece6dc;
-  }
+body.dark-theme {
+  --theme-mode: dark;
+  --theme-page-bg: #080808;
+  --theme-page-text: #f2ece0;
+  --theme-surface: #131313;
+  --theme-border: rgba(255, 255, 255, 0.12);
+  --theme-muted: rgba(242, 236, 224, 0.64);
+  --theme-accent: #f5a623;
+  --theme-accent-contrast: #080808;
+  --theme-nav-bg: rgba(8, 8, 8, 0.85);
+  --theme-nav-border: rgba(255, 255, 255, 0.06);
+  --theme-hero-overlay: rgba(8, 8, 8, 0.8);
+  --theme-card-bg: #161616;
+  --theme-card-border: rgba(255, 255, 255, 0.14);
+  --theme-link-soft: rgba(242, 236, 224, 0.62);
+  --theme-scrollbar-track-start: #0b0b0d;
+  --theme-scrollbar-track-end: #151515;
+  --theme-scrollbar-thumb-start: rgba(245, 166, 35, 0.95);
+  --theme-scrollbar-thumb-end: rgba(230, 142, 12, 0.95);
+  --theme-scrollbar-border: #0b0b0d;
 }
 
 /* Reset & Base */
@@ -112,12 +88,12 @@ html[data-theme="light"] {
 
 html {
   scroll-behavior: smooth;
-  color-scheme: dark;
+  color-scheme: light;
   overflow-x: clip;
 }
 
-html[data-theme="light"] {
-  color-scheme: light;
+body.dark-theme {
+  color-scheme: dark;
 }
 
 body {
@@ -193,29 +169,6 @@ a:hover {
   text-decoration: underline;
 }
 
-html.theme-ready body,
-html.theme-ready section,
-html.theme-ready header,
-html.theme-ready footer,
-html.theme-ready article,
-html.theme-ready nav,
-html.theme-ready div,
-html.theme-ready p,
-html.theme-ready a,
-html.theme-ready button,
-html.theme-ready span,
-html.theme-ready h1,
-html.theme-ready h2,
-html.theme-ready h3,
-html.theme-ready h4,
-html.theme-ready li {
-  transition:
-    background-color 180ms ease,
-    color 180ms ease,
-    border-color 180ms ease,
-    box-shadow 180ms ease;
-}
-
 .firstlight-nav__actions {
   display: inline-flex;
   align-items: center;
@@ -251,6 +204,22 @@ html.theme-ready li {
 
 .firstlight-nav__theme-toggle-icon {
   font-size: 0.82rem;
+}
+
+/* Default state (light mode): show sun, hide moon */
+.firstlight-nav__theme-toggle-icon--dark {
+  display: none;
+}
+.firstlight-nav__theme-toggle-icon--light {
+  display: inline;
+}
+
+/* Dark mode: show moon, hide sun */
+body.dark-theme .firstlight-nav__theme-toggle-icon--dark {
+  display: inline;
+}
+body.dark-theme .firstlight-nav__theme-toggle-icon--light {
+  display: none;
 }
 
 @media (max-width: 760px) {
