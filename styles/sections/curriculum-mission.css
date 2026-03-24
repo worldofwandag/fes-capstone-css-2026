@@ -6,7 +6,7 @@
         --cm-line: rgba(242, 236, 223, 0.08);
         --cm-accent: #f5a623;
         position: relative;
-        overflow: hidden;
+        overflow: clip;
         background: var(--cm-bg);
         color: var(--cm-text);
         padding-block: clamp(3rem, 6vw, 5rem);
@@ -34,8 +34,8 @@
 
       .curriculum-mission__left {
         position: sticky;
-        top: 0;
-        height: 100vh;
+        top: 3rem;
+        height: fit-content;
         overflow: hidden;
         isolation: isolate;
         background: var(--cm-left-bg);
@@ -159,8 +159,8 @@
       .curriculum-mission__count {
         position: absolute;
         left: clamp(1.2rem, 2.8vw, 2.2rem);
-        bottom: clamp(1rem, 2vw, 1.8rem);
-        margin: 0;
+        bottom: clamp(0.5rem, 1vw, 1rem);
+        margin-top: 0;
         font-family: "Space Mono", monospace;
         font-size: 0.72rem;
         letter-spacing: 0.1em;
