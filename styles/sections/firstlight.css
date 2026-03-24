@@ -1,0 +1,490 @@
+.firstlight {
+      --fl-bg: #080808;
+      --fl-text: #f3ede2;
+      --fl-accent: #f5a623;
+    }
+
+    .firstlight-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(8, 8, 8, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      opacity: 0;
+      transform: translateY(-60px);
+      animation: flNavIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0s forwards;
+    }
+
+    .firstlight-nav__inner {
+      max-width: 1240px;
+      margin-inline: auto;
+      padding: 0.95rem 1.4rem;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .firstlight-nav__logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      color: var(--fl-text);
+      text-decoration: none;
+      font-family: "Fraunces", serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .firstlight-nav__mark {
+      width: 16px;
+      height: 16px;
+      border-radius: 2px;
+      background: var(--fl-accent);
+      position: relative;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    .firstlight-nav__mark::after {
+      content: "";
+      position: absolute;
+      width: 7px;
+      height: 7px;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+      border: 1px solid rgba(8, 8, 8, 0.85);
+      background: rgba(8, 8, 8, 0.28);
+    }
+
+    .firstlight-nav__links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .firstlight-nav__link {
+      position: relative;
+      font-family: "Space Mono", monospace;
+      font-size: 0.76rem;
+      letter-spacing: 0.04em;
+      color: rgba(243, 237, 226, 0.5);
+      text-decoration: none;
+      transition: opacity 0.2s ease, color 0.2s ease;
+    }
+
+    .firstlight-nav__link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -0.3rem;
+      height: 1px;
+      background: var(--fl-accent);
+      transform-origin: left;
+      transform: scaleX(0);
+      transition: transform 0.2s ease;
+    }
+
+    .firstlight-nav__link:hover {
+      color: rgba(243, 237, 226, 1);
+    }
+
+    .firstlight-nav__link:hover::after {
+      transform: scaleX(1);
+    }
+
+    .firstlight-nav__cta {
+      border-radius: 2px;
+      border: 1px solid transparent;
+      background: var(--fl-accent);
+      color: #080808;
+      text-decoration: none;
+      padding: 0.55rem 0.9rem;
+      font-family: "Space Mono", monospace;
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 700;
+      transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .firstlight-nav__cta:hover {
+      background: transparent;
+      color: var(--fl-accent);
+      border-color: var(--fl-accent);
+    }
+
+    .firstlight-hero {
+      position: relative;
+      min-height: 100vh;
+      background: var(--fl-bg);
+      color: var(--fl-text);
+      overflow: hidden;
+      /* Override global `.section` spacing to avoid double top gap. */
+      padding-bottom: 0;
+      padding-top: 6rem;
+      display: flex;
+      align-items: stretch;
+    }
+
+    .firstlight-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(245, 166, 35, 0.06) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .firstlight-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cg fill='%23ffffff' fill-opacity='0.12'%3E%3Ccircle cx='11' cy='18' r='0.8'/%3E%3Ccircle cx='47' cy='22' r='0.7'/%3E%3Ccircle cx='79' cy='16' r='0.6'/%3E%3Ccircle cx='121' cy='26' r='0.8'/%3E%3Ccircle cx='18' cy='69' r='0.7'/%3E%3Ccircle cx='62' cy='74' r='0.8'/%3E%3Ccircle cx='103' cy='66' r='0.7'/%3E%3Ccircle cx='27' cy='116' r='0.8'/%3E%3Ccircle cx='88' cy='121' r='0.7'/%3E%3Ccircle cx='126' cy='108' r='0.6'/%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.03;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .firstlight-hero__media {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 55%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .firstlight-hero__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      filter: grayscale(40%) brightness(0.45) contrast(1.2);
+      opacity: 0;
+      animation: flImageIn 1.2s ease 0.2s forwards;
+    }
+
+    .firstlight-hero__media::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, #080808 0%, #080808 20%, rgba(8, 8, 8, 0.8) 50%, transparent 100%);
+      z-index: 1;
+    }
+
+    .firstlight-hero__media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, #080808 0%, transparent 40%);
+      z-index: 1;
+    }
+
+    .firstlight-hero__inner {
+      position: relative;
+      z-index: 3;
+      width: 100%;
+      max-width: 1240px;
+      margin-inline: auto;
+      padding: clamp(1rem, 3vw, 2.2rem) 1.4rem clamp(4rem, 8vh, 7rem);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      min-height: calc(100vh - 6rem);
+    }
+
+    .firstlight-hero__content {
+      width: min(50%, 640px);
+    }
+
+    .firstlight-hero__micro {
+      margin: 0 0 0.85rem;
+      font-family: "Space Mono", monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      color: rgba(245, 166, 35, 0.6);
+      opacity: 0;
+      animation: flFade 0.45s ease 0.3s forwards;
+    }
+
+    .firstlight-hero__headline {
+      margin: 0;
+      line-height: 0.92;
+      letter-spacing: 0.01em;
+    }
+
+    .firstlight-hero__headline-line {
+      display: block;
+      font-family: "Fraunces", serif;
+      font-size: clamp(2.5rem, 5vw, 5.5rem);
+      opacity: 0;
+      transform: translateY(30px);
+      animation: flLineIn 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .firstlight-hero__headline-line--light {
+      font-weight: 300;
+      color: rgba(243, 237, 226, 0.7);
+      animation-delay: 0.5s;
+    }
+
+    .firstlight-hero__headline-line--strong1 { font-weight: 900; color: #f3ede2; animation-delay: 0.65s; }
+    .firstlight-hero__headline-line--strong2 { font-weight: 900; color: var(--fl-accent); animation-delay: 0.8s; }
+    .firstlight-hero__headline-line--strong3 { font-weight: 900; color: #f3ede2; animation-delay: 0.95s; }
+
+    .firstlight-hero__headline-line--strong2 {
+      letter-spacing: 0.2em;
+      animation-name: flLineIn, flChangeSnap;
+      animation-duration: 0.65s, 0.65s;
+      animation-delay: 0.8s, 0.8s;
+      animation-fill-mode: forwards, forwards;
+      animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1), cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .firstlight-hero__subtitle {
+      margin: 1.5rem 0 0;
+      font-family: "Lora", serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: rgba(243, 237, 226, 0.55);
+      opacity: 0;
+      animation: flFade 0.5s ease 1.1s forwards;
+    }
+
+    .firstlight-hero__proof {
+      list-style: none;
+      margin: 1.2rem 0 0;
+      padding: 0;
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .firstlight-hero__proof li {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      opacity: 0;
+      transform: translateY(12px);
+      animation: flProofIn 0.5s ease forwards;
+      font-family: "Space Mono", monospace;
+      font-size: 0.85rem;
+      color: rgba(243, 237, 226, 0.72);
+    }
+
+    .firstlight-hero__proof li:nth-child(1) { animation-delay: 1.2s; }
+    .firstlight-hero__proof li:nth-child(2) { animation-delay: 1.3s; }
+
+    .firstlight-hero__proof-tag {
+      display: inline-block;
+      border: 1px solid var(--fl-accent);
+      padding: 2px 6px;
+      color: var(--fl-accent);
+      font-size: 0.7rem;
+      letter-spacing: 0.03em;
+      line-height: 1;
+    }
+
+    .firstlight-hero__cta {
+      margin-top: 2.5rem;
+      display: inline-block;
+      text-decoration: none;
+      border-radius: 2px;
+      border: 1px solid transparent;
+      background: var(--fl-accent);
+      color: #080808;
+      font-family: "Space Mono", monospace;
+      font-size: 0.86rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 1rem 2.5rem;
+      opacity: 0;
+      transform: translateY(10px);
+      animation: flCtaIn 0.5s ease 1.4s forwards;
+      transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .firstlight-hero__cta::after {
+      content: " →";
+    }
+
+    .firstlight-hero__cta:hover {
+      background: transparent;
+      color: var(--fl-accent);
+      border-color: var(--fl-accent);
+    }
+
+    .firstlight-hero__note {
+      margin: 0.7rem 0 0;
+      font-family: "Space Mono", monospace;
+      font-size: 0.67rem;
+      color: rgba(243, 237, 226, 0.3);
+      letter-spacing: 0.04em;
+      opacity: 0;
+      animation: flFade 0.45s ease 1.45s forwards;
+    }
+
+    .firstlight-hero__social {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 3;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 0.7rem 1rem;
+      text-align: center;
+      font-family: "Space Mono", monospace;
+      font-size: 0.68rem;
+      color: rgba(243, 237, 226, 0.32);
+      letter-spacing: 0.05em;
+      opacity: 0;
+      animation: flFade 0.45s ease 1.6s forwards;
+    }
+
+    .firstlight-hero__social strong {
+      color: var(--fl-accent);
+      font-weight: 700;
+    }
+
+    .firstlight-hero__scroll {
+      position: absolute;
+      left: 1.1rem;
+      bottom: 4.2rem;
+      z-index: 3;
+      writing-mode: vertical-rl;
+      font-family: "Space Mono", monospace;
+      font-size: 0.64rem;
+      color: rgba(243, 237, 226, 0.25);
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    @keyframes flNavIn {
+      from {
+        opacity: 0;
+        transform: translateY(-60px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes flImageIn {
+      from { opacity: 0; }
+      to { opacity: 0.9; }
+    }
+
+    @keyframes flFade {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes flLineIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes flChangeSnap {
+      from { letter-spacing: 0.2em; }
+      to { letter-spacing: 0; }
+    }
+
+    @keyframes flProofIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes flCtaIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 980px) {
+      .firstlight-hero__media {
+        width: 100%;
+        opacity: 0.6;
+      }
+
+      .firstlight-hero__content {
+        width: min(92%, 760px);
+      }
+    }
+
+    @media (max-width: 760px) {
+      .firstlight-nav__inner {
+        grid-template-columns: auto auto;
+        justify-content: space-between;
+      }
+
+      .firstlight-nav__links {
+        display: none;
+      }
+
+      .firstlight-hero {
+        min-height: 100svh;
+      }
+
+      .firstlight-hero__media {
+        width: 100%;
+        height: 100%;
+        opacity: 0.42;
+      }
+
+      .firstlight-hero__inner {
+        text-align: center;
+      }
+
+      .firstlight-hero__content {
+        width: 100%;
+      }
+
+      .firstlight-hero__proof li {
+        justify-content: center;
+      }
+
+      .firstlight-hero__scroll {
+        display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .firstlight-nav,
+      .firstlight-hero__image,
+      .firstlight-hero__micro,
+      .firstlight-hero__headline-line,
+      .firstlight-hero__subtitle,
+      .firstlight-hero__proof li,
+      .firstlight-hero__cta,
+      .firstlight-hero__note,
+      .firstlight-hero__social {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }

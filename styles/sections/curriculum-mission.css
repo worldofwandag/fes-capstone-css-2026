@@ -1,0 +1,399 @@
+.curriculum-mission {
+        --cm-bg: #080808;
+        --cm-left-bg: linear-gradient(135deg, #0d0d10 0%, #080808 100%);
+        --cm-text: #f2ecdf;
+        --cm-muted: rgba(242, 236, 223, 0.6);
+        --cm-line: rgba(242, 236, 223, 0.08);
+        --cm-accent: #f5a623;
+        position: relative;
+        overflow: hidden;
+        background: var(--cm-bg);
+        color: var(--cm-text);
+        padding-block: clamp(3rem, 6vw, 5rem);
+      }
+
+      .curriculum-mission::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: calc(45% + clamp(1rem, 2vw, 2rem));
+        width: 1px;
+        background: linear-gradient(to bottom, transparent, rgba(245, 166, 35, 0.08), transparent);
+        pointer-events: none;
+      }
+
+      .curriculum-mission__layout {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: 45% 55%;
+        align-items: start;
+        gap: clamp(1rem, 2vw, 2rem);
+      }
+
+      .curriculum-mission__left {
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        overflow: hidden;
+        isolation: isolate;
+        background: var(--cm-left-bg);
+        border: 1px solid rgba(255, 255, 255, 0.04);
+        padding: clamp(1.2rem, 2.8vw, 2.2rem);
+      }
+
+      .curriculum-mission__left > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .curriculum-mission__left::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(to bottom, var(--cm-accent), transparent);
+        opacity: 0.7;
+      }
+
+      .curriculum-mission__watermark {
+        position: absolute;
+        left: 48%;
+        bottom: 1rem;
+        transform: translateX(-50%) rotate(-90deg);
+        font-family: "Fraunces", serif;
+        font-weight: 900;
+        font-size: clamp(5rem, 15vw, 12rem);
+        line-height: 1;
+        color: rgba(245, 236, 223, 0.025);
+        pointer-events: none;
+        user-select: none;
+        z-index: 0;
+      }
+
+      .curriculum-mission__label {
+        margin: 0;
+        font-family: "Space Mono", monospace;
+        font-size: 0.72rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--cm-accent);
+        opacity: 0;
+        animation: cmFadeIn 0.4s ease forwards;
+      }
+
+      .curriculum-mission__title {
+        margin: 0.8rem 0 1rem;
+        line-height: 0.95;
+      }
+
+      .curriculum-mission__title-line {
+        display: block;
+        font-family: "Fraunces", serif;
+        font-weight: 900;
+        font-size: clamp(2.3rem, 5vw, 5rem);
+        color: #f6f0e5;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: cmTitleIn 0.58s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      .curriculum-mission__title-line:nth-child(1) { animation-delay: 0.1s; }
+      .curriculum-mission__title-line:nth-child(2) { animation-delay: 0.2s; }
+      .curriculum-mission__title-line:nth-child(3) { animation-delay: 0.3s; }
+
+      .curriculum-mission__rule {
+        width: 40px;
+        height: 1px;
+        background: var(--cm-accent);
+        transform: scaleX(0);
+        transform-origin: left;
+        animation: cmRuleIn 0.45s ease 0.4s forwards;
+      }
+
+      .curriculum-mission__live {
+        margin-top: 1rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .curriculum-mission__dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--cm-accent);
+        animation: cmPulse 2.5s ease-in-out 0.5s infinite alternate;
+      }
+
+      .curriculum-mission__live-label {
+        margin: 0;
+        font-family: "Space Mono", monospace;
+        font-size: 0.7rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(245, 166, 35, 0.7);
+      }
+
+      .curriculum-mission__progress {
+        position: absolute;
+        left: 18px;
+        top: 22%;
+        width: 2px;
+        height: 58%;
+        background: #1a1a1a;
+        overflow: hidden;
+      }
+
+      .curriculum-mission__progress-fill {
+        width: 100%;
+        height: 100%;
+        background: rgba(245, 166, 35, 0.4);
+        transform-origin: top;
+        animation: cmGrow 8s linear infinite alternate;
+      }
+
+      .curriculum-mission__count {
+        position: absolute;
+        left: clamp(1.2rem, 2.8vw, 2.2rem);
+        bottom: clamp(1rem, 2vw, 1.8rem);
+        margin: 0;
+        font-family: "Space Mono", monospace;
+        font-size: 0.72rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(242, 236, 223, 0.3);
+      }
+
+      .curriculum-mission__right {
+        background: #080808;
+      }
+
+      .curriculum-log {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        border-top: 1px solid var(--cm-line);
+      }
+
+      .curriculum-log__item {
+        position: relative;
+        display: grid;
+        grid-template-columns: 64px 1px 1fr auto;
+        gap: 1rem;
+        align-items: start;
+        padding: 2rem 1.5rem;
+        border-bottom: 1px solid var(--cm-line);
+        opacity: 0;
+        transform: translateY(20px);
+        animation: cmCardIn 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        transition: background 0.25s ease;
+      }
+
+      .curriculum-log__item:nth-child(1) { animation-delay: 0.3s; }
+      .curriculum-log__item:nth-child(2) { animation-delay: 0.37s; }
+      .curriculum-log__item:nth-child(3) { animation-delay: 0.44s; }
+      .curriculum-log__item:nth-child(4) { animation-delay: 0.51s; }
+      .curriculum-log__item:nth-child(5) { animation-delay: 0.58s; }
+      .curriculum-log__item:nth-child(6) { animation-delay: 0.65s; }
+      .curriculum-log__item:nth-child(7) { animation-delay: 0.72s; }
+      .curriculum-log__item:nth-child(8) { animation-delay: 0.79s; }
+      .curriculum-log__item:nth-child(9) { animation-delay: 0.86s; }
+
+      .curriculum-log__item::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 2px;
+        height: 100%;
+        background: var(--cm-accent);
+        transform-origin: top;
+        transform: scaleY(0);
+        transition: transform 0.25s ease;
+      }
+
+      .curriculum-log__item:hover {
+        background: rgba(255, 255, 255, 0.025);
+      }
+
+      .curriculum-log__item:hover::before {
+        transform: scaleY(1);
+      }
+
+      .curriculum-log__index {
+        font-family: "Fraunces", serif;
+        font-weight: 900;
+        font-size: 2.5rem;
+        line-height: 1;
+        color: var(--cm-accent);
+        opacity: 0.3;
+        transition: opacity 0.25s ease;
+      }
+
+      .curriculum-log__item:hover .curriculum-log__index {
+        opacity: 1;
+      }
+
+      .curriculum-log__item--milestone .curriculum-log__index {
+        color: #ffc15a;
+      }
+
+      .curriculum-log__divider {
+        width: 1px;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.14);
+      }
+
+      .curriculum-log__title {
+        margin: 0 0 0.5rem;
+        font-family: "Fraunces", serif;
+        font-weight: 700;
+        font-size: 1.1rem;
+        color: rgba(242, 236, 223, 0.92);
+        transition: color 0.25s ease;
+      }
+
+      .curriculum-log__item:hover .curriculum-log__title {
+        color: #ffffff;
+      }
+
+      .curriculum-log__desc {
+        margin: 0;
+        max-width: 480px;
+        font-family: "Lora", serif;
+        font-style: italic;
+        font-size: 0.94rem;
+        line-height: 1.66;
+        color: rgba(242, 236, 223, 0.6);
+        transition: opacity 0.25s ease, color 0.25s ease;
+      }
+
+      .curriculum-log__item:hover .curriculum-log__desc {
+        color: rgba(242, 236, 223, 0.85);
+      }
+
+      .curriculum-log__arrow {
+        font-family: "Space Mono", monospace;
+        font-size: 1rem;
+        color: rgba(242, 236, 223, 0.2);
+        transition: opacity 0.25s ease;
+      }
+
+      .curriculum-log__item:hover .curriculum-log__arrow {
+        color: rgba(242, 236, 223, 0.7);
+      }
+
+      .curriculum-log__badge {
+        display: inline-block;
+        margin-top: 0.45rem;
+        font-family: "Space Mono", monospace;
+        font-size: 0.64rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(245, 166, 35, 0.5);
+      }
+
+      @keyframes cmFadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+
+      @keyframes cmTitleIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes cmRuleIn {
+        from { transform: scaleX(0); }
+        to { transform: scaleX(1); }
+      }
+
+      @keyframes cmCardIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes cmGrow {
+        from { transform: scaleY(0.12); }
+        to { transform: scaleY(1); }
+      }
+
+      @keyframes cmPulse {
+        from {
+          opacity: 0.3;
+          transform: scale(1);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1.3);
+        }
+      }
+
+      @media (max-width: 900px) {
+        .curriculum-mission::before {
+          display: none;
+        }
+
+        .curriculum-mission__layout {
+          grid-template-columns: 1fr;
+        }
+
+        .curriculum-mission__left {
+          position: static;
+          height: auto;
+          min-height: 0;
+        }
+
+        .curriculum-mission__progress,
+        .curriculum-mission__watermark,
+        .curriculum-mission__count {
+          display: none;
+        }
+      }
+
+      @media (max-width: 620px) {
+        .curriculum-log__item {
+          grid-template-columns: 48px 1px 1fr;
+          padding: 1.5rem 0.8rem;
+        }
+
+        .curriculum-log__arrow {
+          display: none;
+        }
+
+        .curriculum-log__index {
+          font-size: 2rem;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .curriculum-mission__label,
+        .curriculum-mission__title-line,
+        .curriculum-mission__rule,
+        .curriculum-log__item {
+          animation: none !important;
+          opacity: 1 !important;
+          transform: none !important;
+        }
+
+        .curriculum-mission__dot,
+        .curriculum-mission__progress-fill {
+          animation: none !important;
+        }
+      }

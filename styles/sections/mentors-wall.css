@@ -1,0 +1,287 @@
+.mentors-wall {
+        --mw-bg: #080808;
+        --mw-text: #f2ece0;
+        --mw-accent: #f5a623;
+        --mw-gap: rgba(245, 166, 35, 0.08);
+        position: relative;
+        overflow: hidden;
+        background: radial-gradient(ellipse at 50% 60%, rgba(245, 166, 35, 0.03) 0%, transparent 60%), var(--mw-bg);
+        color: var(--mw-text);
+        padding-block: 8rem;
+      }
+
+      .mentors-wall__header {
+        margin-bottom: 2.2rem;
+        max-width: 520px;
+      }
+
+      .mentors-wall__kicker {
+        margin: 0;
+        font-family: "Space Mono", monospace;
+        font-size: 0.72rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(245, 166, 35, 0.75);
+        opacity: 0;
+        animation: mwFadeIn 0.4s ease 0s forwards;
+      }
+
+      .mentors-wall__title {
+        margin: 0.35rem 0 0.75rem;
+        font-family: "Fraunces", serif;
+        font-weight: 900;
+        font-size: clamp(3.5rem, 6vw, 6rem);
+        line-height: 0.9;
+        color: #f9f3e9;
+        opacity: 0;
+        transform: translateY(25px);
+        animation: mwTitleIn 0.62s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+      }
+
+      .mentors-wall__subtitle {
+        margin: 0;
+        font-family: "Lora", serif;
+        font-style: italic;
+        font-size: 0.96rem;
+        line-height: 1.7;
+        color: rgba(242, 236, 224, 0.5);
+        opacity: 0;
+        animation: mwFadeIn 0.45s ease 0.3s forwards;
+      }
+
+      .mentors-wall__rule {
+        margin-top: 0.95rem;
+        width: 50px;
+        height: 2px;
+        background: var(--mw-accent);
+        transform: scaleX(0);
+        transform-origin: left;
+        animation: mwRuleIn 0.45s ease 0.4s forwards;
+      }
+
+      .mentors-wall__grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 2px;
+        background: var(--mw-gap);
+      }
+
+      .mentor-wall-card {
+        position: relative;
+        overflow: hidden;
+        min-height: 380px;
+        background: #0d0d0d;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: mwCardIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      .mentor-wall-card--1 { grid-column: 1 / 5; animation-delay: 0.45s; }
+      .mentor-wall-card--2 { grid-column: 5 / 9; animation-delay: 0.55s; }
+      .mentor-wall-card--3 { grid-column: 9 / 13; animation-delay: 0.65s; }
+      .mentor-wall-card--4 { grid-column: 1 / 4; animation-delay: 0.6s; }
+      .mentor-wall-card--5 { grid-column: 4 / 8; animation-delay: 0.7s; }
+      .mentor-wall-card--6 { grid-column: 8 / 13; animation-delay: 0.8s; }
+
+      .mentor-wall-card__image {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top center;
+        filter: grayscale(100%) contrast(1.2) brightness(0.5);
+        transition: filter 0.5s ease;
+      }
+
+      .mentor-wall-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(8, 8, 8, 1) 0%, rgba(8, 8, 8, 0.7) 35%, rgba(8, 8, 8, 0.1) 60%, transparent 100%);
+        transition: opacity 0.3s ease;
+      }
+
+      .mentor-wall-card::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 2px;
+        height: 100%;
+        background: var(--mw-accent);
+        transform-origin: bottom;
+        transform: scaleY(0);
+        transition: transform 0.3s ease;
+        z-index: 2;
+      }
+
+      .mentor-wall-card:hover .mentor-wall-card__image {
+        filter: grayscale(0%) contrast(1.1) brightness(0.7);
+      }
+
+      .mentor-wall-card:hover::after {
+        opacity: 0.72;
+      }
+
+      .mentor-wall-card:hover::before {
+        transform: scaleY(1);
+      }
+
+      .mentor-wall-card__lead {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        z-index: 3;
+        font-family: "Space Mono", monospace;
+        font-size: 0.64rem;
+        letter-spacing: 0.06em;
+        color: #080808;
+        background: var(--mw-accent);
+        padding: 3px 8px;
+      }
+
+      .mentor-wall-card__content {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 3;
+        padding: 1.5rem;
+      }
+
+      .mentor-wall-card__role {
+        margin: 0 0 0.45rem;
+        font-family: "Space Mono", monospace;
+        font-size: 0.66rem;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+      }
+
+      .mentor-wall-card__role--accent {
+        color: rgba(245, 166, 35, 0.9);
+      }
+
+      .mentor-wall-card__role--muted {
+        color: rgba(242, 236, 224, 0.4);
+      }
+
+      .mentor-wall-card__name {
+        margin: 0;
+        font-family: "Fraunces", serif;
+        font-weight: 700;
+        font-size: 1.3rem;
+        color: #f3ece1;
+        transition: color 0.3s ease;
+      }
+
+      .mentor-wall-card--1 .mentor-wall-card__name {
+        font-size: 1.5rem;
+      }
+
+      .mentor-wall-card:hover .mentor-wall-card__name {
+        color: #ffffff;
+      }
+
+      .mentor-wall-card__link {
+        display: inline-block;
+        margin-top: 0.6rem;
+        font-family: "Space Mono", monospace;
+        font-size: 0.7rem;
+        letter-spacing: 0.06em;
+        color: var(--mw-accent);
+        text-decoration: none;
+        opacity: 0;
+        transform: translateY(6px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+      }
+
+      .mentor-wall-card:hover .mentor-wall-card__link {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .mentors-wall__footer {
+        margin: 1.15rem 0 0;
+        text-align: center;
+        font-family: "Space Mono", monospace;
+        font-size: 0.64rem;
+        color: rgba(242, 236, 224, 0.2);
+        letter-spacing: 0.06em;
+        opacity: 0;
+        animation: mwFadeIn 0.45s ease 1s forwards;
+      }
+
+      @keyframes mwFadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+
+      @keyframes mwTitleIn {
+        from {
+          opacity: 0;
+          transform: translateY(25px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes mwRuleIn {
+        from { transform: scaleX(0); }
+        to { transform: scaleX(1); }
+      }
+
+      @keyframes mwCardIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 1024px) {
+        .mentors-wall__grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .mentor-wall-card--1,
+        .mentor-wall-card--2,
+        .mentor-wall-card--3,
+        .mentor-wall-card--4,
+        .mentor-wall-card--5,
+        .mentor-wall-card--6 {
+          grid-column: auto;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .mentors-wall {
+          padding-block: 5rem;
+        }
+
+        .mentors-wall__grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .mentor-wall-card {
+          min-height: 320px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .mentors-wall__kicker,
+        .mentors-wall__title,
+        .mentors-wall__subtitle,
+        .mentors-wall__rule,
+        .mentor-wall-card,
+        .mentors-wall__footer {
+          animation: none !important;
+          opacity: 1 !important;
+          transform: none !important;
+        }
+      }

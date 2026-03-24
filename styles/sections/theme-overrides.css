@@ -1,0 +1,330 @@
+html[data-theme="light"] :where(h1, h2, h3, h4, h5, h6, p, a, li, span, strong, em, small, label, button, summary) {
+  color: #000000 !important;
+}
+
+html[data-theme="light"] :where(a, button, summary)::before,
+html[data-theme="light"] :where(a, button, summary)::after {
+  color: #000000 !important;
+}
+
+/* Keep white typography on the two dark treatment sections */
+html[data-theme="light"] .stats-block,
+html[data-theme="light"] .value-prop-section {
+  color: #ffffff !important;
+}
+
+html[data-theme="light"] .stats-block :where(h1, h2, h3, h4, h5, h6, p, a, li, span, strong, em, small, label, button, summary),
+html[data-theme="light"] .value-prop-section :where(h1, h2, h3, h4, h5, h6, p, a, li, span, strong, em, small, label, button, summary) {
+  color: #ffffff !important;
+}
+
+html[data-theme="light"] .stats-block .stat-card__value,
+html[data-theme="light"] .value-prop-section .value-prop__eyebrow {
+  color: #ffffff !important;
+}
+
+/* Keep white typography only in the right column of alumni dossier section */
+html[data-theme="light"] .dossier-finale .dossier-proof,
+html[data-theme="light"] .dossier-finale .dossier-proof :where(h1, h2, h3, h4, h5, h6, p, a, li, span, strong, em, small, label, button, summary) {
+  color: #ffffff !important;
+}
+
+html[data-theme="light"] .dossier-finale .dossier-proof__list li {
+  border-top-color: rgba(255, 255, 255, 0.16) !important;
+}
+
+html[data-theme="light"] .dossier-finale .dossier-proof__list li::before,
+html[data-theme="light"] .dossier-finale .dossier-proof__list li::after {
+  color: #ffffff !important;
+  background: #ffffff !important;
+}
+
+html[data-theme="light"] .firstlight {
+  --fl-bg: #f6f2ea;
+  --fl-text: #000000;
+  --fl-accent: #b26a11;
+}
+
+html[data-theme="light"] .firstlight-nav {
+  background: var(--theme-nav-bg);
+  border-bottom-color: var(--theme-nav-border);
+}
+
+html[data-theme="light"] .firstlight-nav__mark::after {
+  border-color: rgba(246, 242, 234, 0.92);
+  background: rgba(246, 242, 234, 0.45);
+}
+
+html[data-theme="light"] .firstlight-nav__link {
+  color: rgba(31, 27, 22, 0.62);
+}
+
+html[data-theme="light"] .firstlight-nav__link:hover {
+  color: rgba(31, 27, 22, 1);
+}
+
+html[data-theme="light"] .firstlight-nav__cta {
+  color: #fff8ef;
+}
+
+html[data-theme="light"] .firstlight-hero::before {
+  background: radial-gradient(ellipse at 30% 50%, rgba(178, 106, 17, 0.08) 0%, transparent 62%);
+}
+
+html[data-theme="light"] .firstlight-hero__media::before {
+  background: linear-gradient(to right, #f6f2ea 0%, #f6f2ea 20%, var(--theme-hero-overlay) 50%, transparent 100%);
+}
+
+html[data-theme="light"] .firstlight-hero__media::after {
+  background: linear-gradient(to top, #f6f2ea 0%, transparent 40%);
+}
+
+html[data-theme="light"] .firstlight-hero__image {
+  filter: grayscale(18%) brightness(0.82) contrast(1.02);
+}
+
+html[data-theme="light"] .firstlight-hero__headline-line--strong1,
+html[data-theme="light"] .firstlight-hero__headline-line--strong3 {
+  color: #1f1b16;
+}
+
+html[data-theme="light"] .firstlight-hero__social {
+  border-top-color: rgba(31, 27, 22, 0.16);
+}
+
+html[data-theme="light"] .proof-luxe {
+  --proof-bg: #f7f3ec;
+  --proof-surface: #fffaf1;
+  --proof-surface-alt: #f7f0e5;
+  --proof-text: #221e18;
+  --proof-muted: #655b4f;
+  --proof-accent: #b26a11;
+  background: linear-gradient(180deg, #f5f0e6 0%, #eee6d8 100%);
+  border-top-color: rgba(31, 27, 22, 0.12);
+  border-bottom-color: rgba(31, 27, 22, 0.12);
+}
+
+html[data-theme="light"] .proof-banner,
+html[data-theme="light"] .proof-companies {
+  border-bottom-color: rgba(31, 27, 22, 0.1);
+}
+
+html[data-theme="light"] .proof-quote {
+  border-left-color: rgba(31, 27, 22, 0.2);
+}
+
+html[data-theme="light"] .proof-quote a {
+  color: #8f5309;
+}
+
+html[data-theme="light"] .proof-companies__list li {
+  border-color: rgba(31, 27, 22, 0.24);
+  color: #2a251e;
+}
+
+html[data-theme="light"] .outcome-card {
+  border-color: rgba(31, 27, 22, 0.18);
+  box-shadow: 0 14px 36px rgba(31, 27, 22, 0.1);
+}
+
+html[data-theme="light"] .outcome-company {
+  color: #5b5044;
+}
+
+html[data-theme="light"] .whyus-luxe {
+  --whyus-bg: #f4efe6;
+  --whyus-surface: #fff8ee;
+  --whyus-border: rgba(31, 27, 22, 0.18);
+  --whyus-text: #1f1b16;
+  --whyus-muted: #5c5348;
+  --whyus-accent: #a3600b;
+}
+
+html[data-theme="light"] .dossier-finale {
+  --df-bg: #f5efe5;
+  --df-bg-deep: #ece3d4;
+  --df-text: #241f18;
+  --df-accent: #ad660f;
+}
+
+html[data-theme="light"] .countdown-monument {
+  --cd-bg: #f4efe5;
+  --cd-text: #241f18;
+  --cd-muted: rgba(36, 31, 24, 0.52);
+  --cd-accent: #ab650f;
+  background: radial-gradient(ellipse at 85% 50%, rgba(178, 106, 17, 0.09) 0%, transparent 52%), var(--cd-bg);
+}
+
+/* Step cards: keep item typography white in light mode */
+html[data-theme="light"] .countdown-monument .countdown-phase :where(.countdown-phase__meta, .countdown-phase__weeks, .countdown-phase__label) {
+  color: #ffffff !important;
+}
+
+/* Curriculum: right panel text should stay white in light mode */
+html[data-theme="light"] .curriculum-mission .curriculum-mission__right,
+html[data-theme="light"] .curriculum-mission .curriculum-mission__right :where(h1, h2, h3, h4, h5, h6, p, a, li, span, strong, em, small, label, button, summary) {
+  color: #ffffff !important;
+}
+
+html[data-theme="light"] .curriculum-mission .curriculum-log__divider {
+  background: rgba(255, 255, 255, 0.24) !important;
+}
+
+html[data-theme="light"] .curriculum-mission .curriculum-log__item {
+  border-bottom-color: rgba(255, 255, 255, 0.14) !important;
+}
+
+html[data-theme="light"] .curriculum-mission {
+  --cm-bg: #f5efe6;
+  --cm-left-bg: linear-gradient(135deg, #fff8ed 0%, #f1e8da 100%);
+  --cm-text: #241f18;
+  --cm-muted: rgba(36, 31, 24, 0.62);
+  --cm-line: rgba(36, 31, 24, 0.1);
+  --cm-accent: #ab650f;
+}
+
+html[data-theme="light"] .curriculum-mission .curriculum-mission__watermark {
+  color: rgba(0, 0, 0, 0.08) !important;
+  font-size: clamp(4rem, 12vw, 8.5rem) !important;
+  left: 56%;
+  bottom: 2.4rem;
+}
+
+html[data-theme="light"] .newswall {
+  --news-bg: #f6f1e8;
+  --news-surface: #fff8ee;
+  --news-text: #221e18;
+  --news-muted: #5f564a;
+}
+
+html[data-theme="light"] .mission-control {
+  --mc-bg-deep: #f5efe6;
+  --mc-bg-glow: #e8ddca;
+  --mc-text: #1f1b16;
+  --mc-muted: rgba(31, 27, 22, 0.6);
+  --mc-accent: #0e84a6;
+}
+
+/* Mission Control: right panel text should stay white in light mode */
+html[data-theme="light"] .mission-control .mission-control__right,
+html[data-theme="light"] .mission-control .mission-control__right :where(h1, h2, h3, h4, h5, h6, p, a, li, span, strong, em, small, label, button, summary) {
+  color: #ffffff !important;
+}
+
+html[data-theme="light"] .mission-control .mission-control__right::before {
+  background: linear-gradient(to right, rgba(10, 10, 10, 0.88) 0%, rgba(10, 10, 10, 0.35) 40%, rgba(10, 10, 10, 0.72) 100%) !important;
+}
+
+html[data-theme="light"] .mentors-wall {
+  --mw-bg: #f4efe6;
+  --mw-text: #231f18;
+  --mw-accent: #ad660f;
+  --mw-gap: rgba(173, 102, 15, 0.1);
+}
+
+/* Mentors: keep text inside each card white in light mode */
+html[data-theme="light"] .mentors-wall .mentor-wall-card :where(.mentor-wall-card__role, .mentor-wall-card__name, .mentor-wall-card__link) {
+  color: #ffffff !important;
+}
+
+html[data-theme="light"] .broadcast-coaching {
+  --bc-bg-1: #efe3cf;
+  --bc-bg-2: #f7f1e8;
+  --bc-panel: #fff8ed;
+  --bc-text: #231f19;
+  --bc-muted: rgba(35, 31, 25, 0.62);
+  --bc-line: rgba(35, 31, 25, 0.1);
+  --bc-accent: #b26a11;
+}
+
+html[data-theme="light"] .contract-closer {
+  --contract-bg: #ffffff;
+  --contract-glow: #ffffff;
+  --contract-text: #221e18;
+  --contract-accent: #ad660f;
+  background: #ffffff;
+}
+
+html[data-theme="light"] .contract-closer__watermark {
+  color: rgba(255, 255, 255, 0.92) !important;
+  right: -2.5rem;
+  top: -1.2rem;
+  z-index: 0;
+}
+
+html[data-theme="light"] .faq-interrogation {
+  --faq-bg: #f4eee4;
+  --faq-bg-glow: #ece2d1;
+  --faq-text: #231f18;
+  --faq-muted: rgba(35, 31, 24, 0.45);
+  --faq-soft: rgba(35, 31, 24, 0.1);
+  --faq-accent: #b46c12;
+  --faq-answer-accent: #327f4f;
+}
+
+/* FAQ: keep text white in light mode for readability on dark visual treatment */
+html[data-theme="light"] .faq-interrogation :where(.faq-iq__kicker, .faq-iq__title, .faq-iq__subtitle, .faq-question__text, .faq-answer__text, .faq-question__toggle, .faq-question__q, .faq-answer__label) {
+  color: #ffffff !important;
+}
+
+html[data-theme="light"] .faq-interrogation .faq-question__rule {
+  background: rgba(255, 255, 255, 0.3) !important;
+}
+
+html[data-theme="light"] .faq-interrogation .faq-item {
+  border-bottom-color: rgba(255, 255, 255, 0.16) !important;
+}
+
+html[data-theme="light"] .transmission-footer {
+  --tf-bg: #ece4d8;
+  --tf-top: #f4ecdf;
+  --tf-text: #231f19;
+  --tf-accent: #ad660f;
+  background: radial-gradient(ellipse at 10% 30%, rgba(173, 102, 15, 0.1) 0%, transparent 50%), linear-gradient(to bottom, var(--tf-top) 0%, var(--tf-bg) 100%);
+}
+
+html[data-theme="light"] .transmission-footer__watermark {
+  color: rgba(35, 31, 25, 0.07) !important;
+  font-size: clamp(4rem, 10vw, 7rem) !important;
+  bottom: 0.65rem !important;
+}
+
+html[data-theme="light"] .transmission-footer__logo::after {
+  border-color: rgba(244, 236, 223, 0.92);
+  background: rgba(244, 236, 223, 0.45);
+}
+
+html[data-theme="light"] .transmission-footer__cta {
+  color: #fff8ef;
+}
+
+html[data-theme="light"] .transmission-footer__separator,
+html[data-theme="light"] .transmission-footer__bottom {
+  border-top-color: rgba(35, 31, 24, 0.1);
+}
+
+html[data-theme="light"] .transmission-footer__col {
+  border-left-color: rgba(35, 31, 24, 0.08);
+}
+
+html[data-theme="light"] .transmission-footer__head-rule {
+  background: rgba(173, 102, 15, 0.25);
+}
+
+html[data-theme="light"] .transmission-footer__link {
+  color: rgba(35, 31, 24, 0.72);
+}
+
+html[data-theme="light"] .transmission-footer__dots {
+  color: rgba(35, 31, 24, 0.2);
+}
+
+html[data-theme="light"] .transmission-footer__tag {
+  border-color: rgba(35, 31, 24, 0.18);
+  color: rgba(35, 31, 24, 0.48);
+}
+
+html[data-theme="light"] .transmission-footer__tag:hover {
+  color: rgba(35, 31, 24, 0.72);
+  border-color: rgba(173, 102, 15, 0.35);
+}

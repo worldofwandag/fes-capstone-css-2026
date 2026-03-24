@@ -1,0 +1,321 @@
+.mission-control {
+        --mc-bg-deep: #080808;
+        --mc-bg-glow: #111820;
+        --mc-text: #f2eee7;
+        --mc-muted: rgba(242, 238, 231, 0.6);
+        --mc-accent: #19d3ff;
+        position: relative;
+        overflow: hidden;
+        background:
+          radial-gradient(ellipse at 30% 50%, var(--mc-bg-glow) 0%, var(--mc-bg-deep) 70%),
+          linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        background-size: auto, 40px 40px, 40px 40px;
+        color: var(--mc-text);
+        padding-block: clamp(2.8rem, 6vw, 5.2rem);
+      }
+
+      .mission-control__layout {
+        display: grid;
+        grid-template-columns: 55% 45%;
+        gap: clamp(1rem, 2vw, 2rem);
+        align-items: stretch;
+        min-height: 540px;
+      }
+
+      .mission-control__left {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 1.4rem;
+        padding: clamp(0.5rem, 1vw, 1rem) clamp(0.2rem, 1vw, 0.6rem);
+      }
+
+      .mission-control__kicker {
+        margin: 0 0 0.45rem;
+        font-family: "Space Mono", monospace;
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        color: var(--mc-muted);
+        text-transform: uppercase;
+        opacity: 0;
+        transform: translateY(10px);
+        animation: mcFadeIn 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        animation-delay: 0s;
+      }
+
+      .mission-control__headline {
+        margin: 0;
+        font-family: "Fraunces", serif;
+        font-weight: 900;
+        font-size: clamp(2rem, 7vw, 4.7rem);
+        line-height: 0.94;
+        max-width: 12ch;
+        opacity: 0;
+        transform: translateX(-20px);
+        animation: mcSweepIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        animation-delay: 0.2s;
+      }
+
+      .mission-control__copy {
+        margin: 0;
+        font-family: "Fraunces", serif;
+        font-weight: 300;
+        font-size: clamp(0.98rem, 2vw, 1.08rem);
+        line-height: 1.65;
+        color: rgba(242, 238, 231, 0.82);
+        max-width: 42ch;
+      }
+
+      .mission-control__form-wrap {
+        margin-top: auto;
+        max-width: 460px;
+      }
+
+      .mission-control__email-label {
+        margin: 0 0 0.7rem;
+        font-family: "Space Mono", monospace;
+        font-size: 0.74rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(25, 211, 255, 0.9);
+      }
+
+      .mission-control__cta-form {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.9rem;
+        align-items: flex-end;
+      }
+
+      .mission-control__input-shell {
+        position: relative;
+        flex: 1;
+        min-width: 230px;
+      }
+
+      .mission-control__glow {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -2px;
+        height: 10px;
+        pointer-events: none;
+        box-shadow: 0 2px 8px rgba(25, 211, 255, 0.6);
+        opacity: 0.2;
+        transform: scaleX(0.8);
+        animation: mcPulseGlow 3s ease-in-out infinite alternate;
+      }
+
+      .mission-control__input {
+        width: 100%;
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid rgba(25, 211, 255, 0.85);
+        color: var(--mc-text);
+        padding: 0.55rem 0.15rem 0.65rem;
+        font-family: "Space Mono", monospace;
+        font-size: 0.95rem;
+      }
+
+      .mission-control__input:focus {
+        outline: none;
+      }
+
+      .mission-control__input::placeholder {
+        color: rgba(242, 238, 231, 0.52);
+        font-family: "Space Mono", monospace;
+      }
+
+      .mission-control__button {
+        border: 1px solid transparent;
+        border-radius: 0;
+        background: var(--mc-accent);
+        color: #061117;
+        padding: 0.72rem 1.15rem;
+        font-family: "Space Mono", monospace;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+      }
+
+      .mission-control__button:hover {
+        background: transparent;
+        color: var(--mc-accent);
+        border-color: var(--mc-accent);
+      }
+
+      .mission-control__note {
+        margin: 0.85rem 0 0;
+        font-family: "Space Mono", monospace;
+        font-size: 0.72rem;
+        color: rgba(242, 238, 231, 0.48);
+        letter-spacing: 0.06em;
+      }
+
+      .mission-control__right {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .mission-control__image {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: grayscale(100%) contrast(1.2) brightness(0.4);
+      }
+
+      .mission-control__right::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to right, #0a0a0a 0%, rgba(10, 10, 10, 0.2) 40%, rgba(10, 10, 10, 0.55) 100%);
+        z-index: 1;
+      }
+
+      .mission-control__stats {
+        position: relative;
+        z-index: 2;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: clamp(1.4rem, 3vw, 2.1rem);
+        padding: clamp(1.2rem, 3vw, 2.2rem);
+      }
+
+      .mc-stat {
+        opacity: 0;
+        transform: translateX(24px);
+        animation: mcFadeInRight 0.68s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      .mc-stat:nth-child(1) { animation-delay: 0.3s; }
+      .mc-stat:nth-child(2) { animation-delay: 0.45s; }
+      .mc-stat:nth-child(3) { animation-delay: 0.6s; }
+
+      .mc-stat__number {
+        margin: 0;
+        font-family: "Fraunces", serif;
+        font-weight: 300;
+        font-size: clamp(2.8rem, 8vw, 5.6rem);
+        line-height: 0.86;
+        color: var(--mc-accent);
+        text-shadow: 0 0 16px rgba(25, 211, 255, 0.25);
+      }
+
+      .mc-stat__rule {
+        height: 1px;
+        width: min(90%, 220px);
+        background: rgba(25, 211, 255, 0.75);
+        transform-origin: left;
+        transform: scaleX(0);
+        animation: mcRuleIn 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      .mc-stat:nth-child(1) .mc-stat__rule { animation-delay: 0.4s; }
+      .mc-stat:nth-child(2) .mc-stat__rule { animation-delay: 0.55s; }
+      .mc-stat:nth-child(3) .mc-stat__rule { animation-delay: 0.7s; }
+
+      .mc-stat__label {
+        margin: 0.42rem 0 0;
+        font-family: "Space Mono", monospace;
+        font-size: 0.72rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(242, 238, 231, 0.52);
+      }
+
+      @keyframes mcFadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes mcSweepIn {
+        from {
+          opacity: 0;
+          transform: translateX(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes mcFadeInRight {
+        from {
+          opacity: 0;
+          transform: translateX(24px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes mcRuleIn {
+        from { transform: scaleX(0); }
+        to { transform: scaleX(1); }
+      }
+
+      @keyframes mcPulseGlow {
+        from {
+          opacity: 0.14;
+          transform: scaleX(0.82);
+        }
+        to {
+          opacity: 0.34;
+          transform: scaleX(1);
+        }
+      }
+
+      @media (max-width: 1024px) {
+        .mission-control__layout {
+          grid-template-columns: 1fr;
+          min-height: 0;
+        }
+
+        .mission-control__right {
+          min-height: 420px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .mission-control__headline {
+          max-width: 100%;
+        }
+
+        .mission-control__cta-form {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .mission-control__right {
+          min-height: 360px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .mission-control__kicker,
+        .mission-control__headline,
+        .mc-stat,
+        .mc-stat__rule,
+        .mission-control__glow {
+          animation: none !important;
+          opacity: 1 !important;
+          transform: none !important;
+        }
+      }

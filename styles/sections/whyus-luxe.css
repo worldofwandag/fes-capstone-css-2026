@@ -1,0 +1,259 @@
+.whyus-luxe {
+        --whyus-bg: #0a0a0b;
+        --whyus-surface: #111113;
+        --whyus-border: rgba(255, 248, 235, 0.18);
+        --whyus-text: #f5efe3;
+        --whyus-muted: #c9c1b4;
+        --whyus-accent: #d79b3b;
+        background: radial-gradient(circle at 8% 10%, rgba(215, 155, 59, 0.09), transparent 32%), var(--whyus-bg);
+        color: var(--whyus-text);
+        padding-block: 6rem;
+      }
+
+      .whyus-luxe__heading {
+        max-width: 60ch;
+        margin-bottom: 2.25rem;
+      }
+
+      .whyus-luxe__title {
+        font-family: "DM Serif Display", serif;
+        font-size: clamp(2rem, 5vw, 3rem);
+        line-height: 1.06;
+        letter-spacing: 0.02em;
+        margin-bottom: 0.75rem;
+      }
+
+      .whyus-luxe__subtitle {
+        font-family: "DM Mono", monospace;
+        color: var(--whyus-muted);
+        font-size: 0.92rem;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+      }
+
+      .whyus-luxe__grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .whyus-card {
+        position: relative;
+        overflow: hidden;
+        isolation: isolate;
+        min-height: 305px;
+        background: linear-gradient(165deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01)) var(--whyus-surface);
+        border: 1px solid var(--whyus-border);
+        border-radius: 4px;
+        backdrop-filter: blur(3px);
+        box-shadow: 0 18px 50px rgba(0, 0, 0, 0.42);
+        transform: translateY(36px);
+        opacity: 0;
+        animation: whyus-card-in 0.95s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+      }
+
+      .whyus-card::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(to bottom, rgba(215, 155, 59, 0.2), var(--whyus-accent), rgba(215, 155, 59, 0.2));
+        transform-origin: top;
+        transform: scaleY(0);
+        transition: transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+
+      .whyus-card::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 1px;
+        width: 100%;
+        background: linear-gradient(90deg, transparent, var(--whyus-accent), transparent);
+        transform-origin: left;
+        transform: scaleX(0);
+        animation: whyus-line-in 0.95s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+      }
+
+      .whyus-card__inner {
+        position: relative;
+        z-index: 2;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .whyus-card:nth-child(1) .whyus-card__inner {
+        padding: 2.3rem 1.45rem 1.7rem 1.35rem;
+      }
+
+      .whyus-card:nth-child(2) .whyus-card__inner {
+        padding: 2rem 1.7rem 1.9rem 1.2rem;
+      }
+
+      .whyus-card:nth-child(3) .whyus-card__inner {
+        padding: 2.15rem 1.35rem 2.05rem 1.5rem;
+      }
+
+      .whyus-card:nth-child(4) .whyus-card__inner {
+        padding: 2rem 1.45rem 1.8rem 1.25rem;
+      }
+
+      .whyus-card__num {
+        position: absolute;
+        right: 0.55rem;
+        top: -0.9rem;
+        font-family: "DM Serif Display", serif;
+        font-size: clamp(4.8rem, 8.2vw, 6.6rem);
+        color: rgba(245, 239, 227, 0.1);
+        letter-spacing: 0.02em;
+        line-height: 1;
+        opacity: 0.32;
+        clip-path: inset(100% 0 0 0);
+        transition: clip-path 0.62s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.62s cubic-bezier(0.22, 1, 0.36, 1);
+        pointer-events: none;
+      }
+
+      .whyus-card h3 {
+        position: relative;
+        z-index: 2;
+        font-family: "DM Serif Display", serif;
+        font-size: clamp(1.45rem, 2vw, 1.8rem);
+        font-weight: 400;
+        line-height: 1.08;
+        max-width: 15ch;
+        margin-bottom: 1rem;
+        color: var(--whyus-text);
+        background-image: linear-gradient(120deg, var(--whyus-text) 0%, var(--whyus-text) 42%, var(--whyus-accent) 50%, var(--whyus-text) 58%, var(--whyus-text) 100%);
+        background-size: 210% 100%;
+        background-position: 100% 0;
+        -webkit-background-clip: text;
+        background-clip: text;
+      }
+
+      .whyus-card p {
+        position: relative;
+        z-index: 2;
+        margin-top: auto;
+        font-family: "DM Mono", monospace;
+        color: var(--whyus-muted);
+        font-size: 0.9rem;
+        line-height: 1.72;
+      }
+
+      .whyus-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 34px 64px rgba(0, 0, 0, 0.58);
+      }
+
+      .whyus-card:hover::before {
+        transform: scaleY(1);
+      }
+
+      .whyus-card:hover .whyus-card__num {
+        clip-path: inset(0 0 0 0);
+        opacity: 0.54;
+      }
+
+      .whyus-card:hover h3 {
+        color: transparent;
+        animation: whyus-shimmer 0.95s cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+
+      .whyus-card:nth-child(1) {
+        animation-delay: 0s;
+      }
+
+      .whyus-card:nth-child(2) {
+        animation-delay: 0.15s;
+      }
+
+      .whyus-card:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+
+      .whyus-card:nth-child(4) {
+        animation-delay: 0.45s;
+      }
+
+      .whyus-card:nth-child(1)::after {
+        animation-delay: 0.08s;
+      }
+
+      .whyus-card:nth-child(2)::after {
+        animation-delay: 0.23s;
+      }
+
+      .whyus-card:nth-child(3)::after {
+        animation-delay: 0.38s;
+      }
+
+      .whyus-card:nth-child(4)::after {
+        animation-delay: 0.53s;
+      }
+
+      @keyframes whyus-card-in {
+        from {
+          transform: translateY(36px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes whyus-line-in {
+        from {
+          transform: scaleX(0);
+        }
+        to {
+          transform: scaleX(1);
+        }
+      }
+
+      @keyframes whyus-shimmer {
+        0% {
+          background-position: 120% 0;
+        }
+        100% {
+          background-position: -30% 0;
+        }
+      }
+
+      @media (max-width: 1024px) {
+        .whyus-luxe__grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 768px) {
+        .whyus-luxe {
+          padding-block: 4.5rem;
+        }
+
+        .whyus-luxe__grid {
+          grid-template-columns: 1fr;
+        }
+
+        .whyus-card {
+          min-height: 270px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .whyus-card,
+        .whyus-card::after,
+        .whyus-card::before,
+        .whyus-card__num,
+        .whyus-card h3 {
+          animation: none !important;
+          transition: none !important;
+          transform: none !important;
+          opacity: 1 !important;
+          clip-path: none !important;
+        }
+      }

@@ -1,0 +1,299 @@
+.countdown-monument {
+        --cd-bg: #080808;
+        --cd-text: #f4ede2;
+        --cd-muted: rgba(244, 237, 226, 0.45);
+        --cd-accent: #f5a623;
+        position: relative;
+        overflow: hidden;
+        background: radial-gradient(ellipse at 85% 50%, rgba(245, 166, 35, 0.04) 0%, transparent 50%), var(--cd-bg);
+        color: var(--cd-text);
+        padding-block: clamp(4rem, 7vw, 7rem);
+      }
+
+      .countdown-monument__header {
+        max-width: 980px;
+        margin-bottom: clamp(2rem, 4vw, 3rem);
+      }
+
+      .countdown-monument__line {
+        display: block;
+        font-family: "Fraunces", serif;
+        transform: translateY(20px);
+        opacity: 0;
+        animation: cdLineIn 0.58s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      .countdown-monument__line--one {
+        font-weight: 300;
+        font-size: clamp(1.9rem, 3.6vw, 3.4rem);
+        color: rgba(244, 237, 226, 0.4);
+        animation-delay: 0s;
+      }
+
+      .countdown-monument__line--two {
+        font-weight: 900;
+        font-size: clamp(2rem, 4vw, 4rem);
+        color: var(--cd-text);
+        animation-delay: 0.12s;
+      }
+
+      .countdown-monument__line--three {
+        font-weight: 300;
+        font-style: italic;
+        font-size: clamp(1.4rem, 2.6vw, 2.2rem);
+        color: rgba(244, 237, 226, 0.45);
+        animation-delay: 0.24s;
+      }
+
+      .countdown-monument__dots {
+        margin-top: 1.1rem;
+        display: inline-flex;
+        gap: 1rem;
+      }
+
+      .countdown-monument__dot {
+        font-family: "Space Mono", monospace;
+        font-size: 0.9rem;
+        line-height: 1;
+        color: var(--cd-accent);
+        transform: scale(0);
+        opacity: 0;
+        animation: cdDotIn 0.35s ease forwards;
+      }
+
+      .countdown-monument__dot:nth-child(1) { animation-delay: 0.4s; }
+      .countdown-monument__dot:nth-child(2) { animation-delay: 0.5s; }
+      .countdown-monument__dot:nth-child(3) { animation-delay: 0.6s; }
+
+      .countdown-phases {
+        display: grid;
+        grid-template-columns: 45fr 32fr 23fr;
+        gap: 1px;
+        background: rgba(245, 166, 35, 0.1);
+      }
+
+      .countdown-phase {
+        position: relative;
+        overflow: hidden;
+        min-height: 240px;
+        padding: 2rem 1.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border-top: 3px solid rgba(245, 166, 35, 0.3);
+        opacity: 0;
+        transform: translateY(30px);
+        animation: cdCardIn 0.62s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      .countdown-phase--one {
+        background: #111111;
+        border-top-color: rgba(245, 166, 35, 0.3);
+        animation-delay: 0.35s;
+      }
+
+      .countdown-phase--two {
+        background: #131313;
+        border-top-color: rgba(245, 166, 35, 0.6);
+        animation-delay: 0.5s;
+      }
+
+      .countdown-phase--three {
+        background: #1a1500;
+        border-top-color: #f5a623;
+        animation-delay: 0.65s;
+      }
+
+      .countdown-phase__glow {
+        position: absolute;
+        inset: 0;
+        box-shadow: 0 0 30px rgba(245, 166, 35, 0.08) inset;
+        opacity: 0;
+        animation: cdGlowIn 0.55s ease 0.9s forwards;
+        pointer-events: none;
+      }
+
+      .countdown-phase__watermark {
+        position: absolute;
+        right: 0.5rem;
+        bottom: -0.4rem;
+        font-family: "Fraunces", serif;
+        font-weight: 900;
+        font-size: clamp(7rem, 12vw, 12rem);
+        line-height: 1;
+        pointer-events: none;
+      }
+
+      .countdown-phase--one .countdown-phase__watermark { color: rgba(245, 166, 35, 0.04); }
+      .countdown-phase--two .countdown-phase__watermark { color: rgba(245, 166, 35, 0.05); }
+      .countdown-phase--three .countdown-phase__watermark { color: rgba(245, 166, 35, 0.08); }
+
+      .countdown-phase__meta {
+        font-family: "Space Mono", monospace;
+        font-size: 0.64rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(244, 237, 226, 0.3);
+      }
+
+      .countdown-phase__weeks {
+        margin: 0.25rem 0 0.2rem;
+        font-family: "Fraunces", serif;
+        font-weight: 900;
+        font-size: clamp(2rem, 4vw, 2.7rem);
+        line-height: 0.95;
+      }
+
+      .countdown-phase--one .countdown-phase__weeks { color: rgba(245, 166, 35, 0.6); }
+      .countdown-phase--two .countdown-phase__weeks { color: rgba(245, 166, 35, 0.8); }
+      .countdown-phase--three .countdown-phase__weeks { color: #f5a623; }
+
+      .countdown-phase__label {
+        margin: 0;
+        font-family: "Space Mono", monospace;
+        font-size: 0.86rem;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+        color: rgba(244, 237, 226, 0.9);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+      }
+
+      .countdown-phase--three .countdown-phase__label {
+        color: #fff6de;
+      }
+
+      .countdown-phase__live-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--cd-accent);
+        animation: cdPulse 2s ease-in-out 1s infinite alternate;
+      }
+
+      .countdown-phase__rule {
+        width: 40px;
+        height: 1px;
+        background: var(--cd-accent);
+        margin-top: 0.65rem;
+      }
+
+      .countdown-phase__progress {
+        margin-top: 1rem;
+        width: 100%;
+        height: 2px;
+        background: rgba(255, 255, 255, 0.05);
+        overflow: hidden;
+      }
+
+      .countdown-phase__progress-fill {
+        height: 100%;
+        transform: scaleX(0);
+        transform-origin: left;
+        animation: cdProgressIn 0.6s ease forwards;
+      }
+
+      .countdown-phase--one .countdown-phase__progress-fill {
+        width: 100%;
+        background: var(--cd-accent);
+        animation-delay: 0.6s;
+      }
+
+      .countdown-phase--two .countdown-phase__progress-fill {
+        width: 67%;
+        background: var(--cd-accent);
+        animation-delay: 0.75s;
+      }
+
+      .countdown-phase--three .countdown-phase__progress-fill {
+        width: 33%;
+        background: var(--cd-accent);
+        animation-delay: 0.9s;
+      }
+
+      @keyframes cdLineIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes cdDotIn {
+        from {
+          opacity: 0;
+          transform: scale(0);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      @keyframes cdCardIn {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes cdGlowIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+
+      @keyframes cdProgressIn {
+        from { transform: scaleX(0); }
+        to { transform: scaleX(1); }
+      }
+
+      @keyframes cdPulse {
+        from {
+          opacity: 0.35;
+          transform: scale(1);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1.3);
+        }
+      }
+
+      @media (max-width: 980px) {
+        .countdown-phases {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 700px) {
+        .countdown-phases {
+          grid-template-columns: 1fr;
+        }
+
+        .countdown-phase {
+          min-height: 200px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .countdown-monument__line,
+        .countdown-monument__dot,
+        .countdown-phase,
+        .countdown-phase__glow,
+        .countdown-phase__progress-fill {
+          animation: none !important;
+          opacity: 1 !important;
+          transform: none !important;
+        }
+
+        .countdown-phase__live-dot {
+          animation: none !important;
+        }
+      }
